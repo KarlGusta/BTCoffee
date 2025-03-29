@@ -48,6 +48,24 @@ class Creator {
         return false;
     }
 
+    public function readOne() {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE username = ? LIMIT 0,1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->username);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $this->id = $row['id'];
+            $this->username = $row['username'];
+            $this->email = $row['email'];
+            $this->profile_link = $row['profile_link'];
+            $this->created_at = $row['created_at'];
+            return true;
+        }
+        return false;
+    }
+
     public function usernameExists() {
         $query = "SELECT id FROM " . $this->table_name . " WHERE username = ? LIMIT 0,1";
         $stmt = $this->conn->prepare($query);
