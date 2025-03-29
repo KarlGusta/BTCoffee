@@ -10,18 +10,16 @@ $username = isset($_GET['username']) ? $_GET['username'] : die('ERROR: Missing u
 $database = new Database();
 $db = $database->getConnection();
 
-// Query to get creator details
-$query = "SELECT * FROM creators WHERE username = ? LIMIT 0,1";
-$stmt = $db->prepare($query);
-$stmt->bindParam(1, $username);
-$stmt->execute();
+// Create creator object
+$creator = new Creator($db);
+$creator->username = $username;
 
-if ($stmt->rowCount() > 0) {
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    $creator_id = $row['id'];
-    $creator_username = $row['username'];
-    $creator_email = $row['email'];
-    $creator_profile_link = $row['profile_link'];
+// Try to fetch creator details
+if ($creator->readOne()) {
+    $creator_id = $creator->id;
+    $creator_username = $creator->username;
+    $creator_email = $creator->email;
+    $creator_profile_link = $creator->profile_link;
 } else {
     // Creator not found
     header("Location: ../index.php");
@@ -41,9 +39,37 @@ if ($stmt->rowCount() > 0) {
 
 <body>
     <div class="container">
-        <h1><?php echo $creator_username; ?>'s Creator Profile</h1>
-        <p>Profile Link: <a href="<?php echo $creator_profile_link; ?>"><?php echo $creator_profile_link; ?></a></p>
-        <!-- Add more profile information here -->
+        <header>
+            <nav>
+                <a href="../index.php">Home</a>
+            </nav>
+        </header>
+        <main>
+            <div class="profile-header">
+                <h1><?php echo htmlspecialchars($creator_username); ?>'s Creator Profile</h1>
+                <p class="join-date">Member since: <?php echo date('F j, Y', strtotime($creator->created_at)); ?></p>
+            </div>
+
+            <div class="profile-content">
+                <div class="profile-section">
+                    <h2>About</h2>
+                    <p>Profile Link: <a href="<?php echo htmlspecialchars($creator_profile_link); ?>"><?php echo htmlspecialchars($creator_profile_link); ?></a></p>
+                    <!-- You could add a bio field to your creators table -->
+                </div>
+
+                <div class="profile-section">
+                    <h2>Support <?php echo $creator_username; ?></h2>
+                    <!-- Bitcoin donation button/QR code would go here -->
+                     <div class="donation-options">
+                        <button class="btn donate-btn">Send Bitcoin Tip</button>
+                     </div>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; <?php echo date('Y'); ?> BTCoffee - The easiest way to receive Bitcoin tips</p>
+        </footer>
     </div>
 </body>
 
