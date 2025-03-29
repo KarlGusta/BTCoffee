@@ -1,7 +1,7 @@
 <?php
 // Include database and creator class
-include_once 'config/database.php';
-include_once 'classes/Creator.php';
+include_once '../config/database.php';
+include_once '../classes/Creator.php';
 
 // Initialize variables
 $error_message = "";
@@ -52,5 +52,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['register'])) {
 }
 
 // Include the view
-include_once 'views/register.php';
+include_once '../views/registration/register.php';
 ?>

@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Creator Registration</title>
-        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
     </head>
     <body>
         <div class="container">
@@ -18,7 +18,7 @@
                 <div class="success"><?php echo $success_message; ?></div>
             <?php endif; ?>
             
-            <form action="register_handler.php" method="post">
+            <form action="../../handlers/register_handler.php" method="post">
                 <div class="form-group">
                     <label for="username">Username:</label>
                     <input type="text" name="username" id="username" required>

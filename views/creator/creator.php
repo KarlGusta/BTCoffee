@@ -1,7 +1,7 @@
 <?php
 // Include database and creator class
-include_once '../config/database.php';
-include_once '../classes/Creator.php';
+include_once '../../config/database.php';
+include_once '../../classes/Creator.php';
 
 // Get username from URL
 $username = isset($_GET['username']) ? $_GET['username'] : die('ERROR: Missing username.');

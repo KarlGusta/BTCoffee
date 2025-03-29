@@ -2,7 +2,7 @@
 
 class Database {
     private $host = "localhost";
-    private $db_name = "creator_platform";
+    private $db_name = "btcoffee";
     private $username = "root";
     private $password = "";
     private $conn;
