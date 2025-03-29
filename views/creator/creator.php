@@ -10,18 +10,16 @@ $username = isset($_GET['username']) ? $_GET['username'] : die('ERROR: Missing u
 $database = new Database();
 $db = $database->getConnection();
 
-// Query to get creator details
-$query = "SELECT * FROM creators WHERE username = ? LIMIT 0,1";
-$stmt = $db->prepare($query);
-$stmt->bindParam(1, $username);
-$stmt->execute();
+// Create creator object
+$creator = new Creator($db);
+$creator->username = $username;
 
-if ($stmt->rowCount() > 0) {
-    $row = $stmt->fetch(PDO::FETCH_ASSOC);
-    $creator_id = $row['id'];
-    $creator_username = $row['username'];
-    $creator_email = $row['email'];
-    $creator_profile_link = $row['profile_link'];
+// Try to fetch creator details
+if ($creator->readOne()) {
+    $creator_id = $creator->id;
+    $creator_username = $creator->username;
+    $creator_email = $creator->email;
+    $creator_profile_link = $creator->profile_link;
 } else {
     // Creator not found
     header("Location: ../index.php");
