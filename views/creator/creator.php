@@ -66,8 +66,16 @@ if ($creator->readOne()) {
                             <input type="hidden" name="creator_username" value="<?php echo htmlspecialchars($creator_username); ?>">
 
                             <div class="form-group">
-                                <label for="amount">Amount (in sats):</label>
-                                <input type="number" id="amount" name="amount" min="1000" step="1000" value="10000" required>
+                                <label for="amount">Amount:</label>
+                                <div class="amount-input-group">
+                                    <input type="number" id="amount" name="amount" min="1000" step="1000" value="10000" required>
+                                    <select id="currency" name="currency">
+                                        <option value="sats">sats</option>
+                                        <option value="usd">USD</option>
+                                        <option value="eur">EUR</option>
+                                    </select>
+                                </div>
+                                <p id="conversion-display">≈ $0.00 USD</p>
                             </div>
 
                             <div class="form-group">
@@ -84,10 +92,14 @@ if ($creator->readOne()) {
                         <div id="bitcoin-qr" class="bitcoin-qr" style="display: none;">
                             <h3>Scan to Pay</h3>
                             <div class="qr-container">
+                                <?php
+                                // Use a default address if the creator hasn't set one
+                                $bitcoin_address = !empty($creator->bitcoin_address) ? $creator->bitcoin_address : "bc1q...address";
+                                ?>
                                 <!-- QR code will be inserted here via JavaScript -->
-                                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:<?php echo htmlspecialchars($creator_username); ?>?amount=0.0001" alt="Bitcoin QR Code">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:<?php echo htmlspecialchars($bitcoin_address); ?>?amount=0.0001" alt="Bitcoin QR Code"> 
                             </div>
-                            <p class="bitcoin-address">bc1q...address</p>
+                            <p class="bitcoin-address"><?php echo htmlspecialchars($bitcoin_address); ?></p>
                             <p class="payment-note">Scan with any Bitcoin wallet to send a tip</p>
                         </div>
                      </div>
@@ -120,8 +132,62 @@ if ($creator->readOne()) {
             amountInput.addEventListener('change', function() {
                 const amount = parseFloat(amountInput.value) / 100000000; // Convert sats to BTC
                 const qrImage = document.querySelector('.qr-container img');
-                qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:bc1q...address?amount=${amount}`;
+                const bitcoinAddress = document.querySelector('.bitcoin-address').textContent;
+                qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:${bitcoinAddress}?amount=${amount}`;
             });
+
+            // Currency conversion
+            const currencySelect = document.getElementById('currency');
+            const conversionDisplay = document.getElementById('conversion-display');
+
+            // Bitcoin price in USD (you would fetch this from an API)
+            let btcPriceUSD = 50000; // Example price
+
+            // Fetch current Bitcoin price
+            fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur')
+                 .then(response => response.json())
+                 .then(data => {
+                    btcPriceUSD = data.bitcoin.usd;
+                    updateConversionDisplay();
+                 }) 
+                 .catch(error => console.error('Error fetching Bitcoin price:', error));
+
+            function updateConversionDisplay() {
+                const amount = parseFloat(amountInput.value);
+                const currency = currencySelect.value;
+
+                if (currency === 'sats') {
+                    // Convert sats to USD
+                    const amountUSD = (amount / 100000000) * btcPriceUSD;
+                    conversionDisplay.textContent = `≈ $${amountUSD.toFixed(2)} USD`;
+                } else if (currency === 'usd') {
+                    // Convert USD to sats
+                    const amountSats = (amount / btcPriceUSD) * 100000000;
+                    conversionDisplay.textContent = `≈ ${Math.round(amountSats)} sats`;
+                } else if (currency === 'eur') {
+                    // Convert EUR to sats (assuming we have EUR price from API)
+                    const amountSats = (amount / btcPriceUSD * 0.85) * 100000000; // Rough EUR conversion
+                    conversionDisplay.textContent = `≈ ${Math.round(amountSats)} sats`;  
+                }
+            }     
+
+            amountInput.addEventListener('input', updateConversionDisplay);
+            currencySelect.addEventListener('change', function() {
+                if (currencySelect.value === 'usd') {
+                    amountInput.value = 5; // Default USD amount
+                    amountInput.min = 1;
+                    amountInput.step = 1;
+                } else if (currencySelect.value === 'eur') {
+                    amountInput.value = 5; // Default EUR amount
+                    amountInput.min = 1;
+                    amountInput.step = 1;
+                } else {
+                    amountInput.value = 10000; // Default sats amount
+                    amountInput.min = 1000;
+                    amountInput.step = 1000; 
+                }
+                updateConversionDisplay();
+            });            
         });
     </script>
 </body>
