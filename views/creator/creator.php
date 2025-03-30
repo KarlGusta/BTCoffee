@@ -58,10 +58,38 @@ if ($creator->readOne()) {
                 </div>
 
                 <div class="profile-section">
-                    <h2>Support <?php echo $creator_username; ?></h2>
-                    <!-- Bitcoin donation button/QR code would go here -->
+                    <h2>Support <?php echo htmlspecialchars($creator_username); ?></h2>
+                    
                      <div class="donation-options">
-                        <button class="btn donate-btn">Send Bitcoin Tip</button>
+                        <form action="../../handlers/payment_handler.php" method="post" class="payment-form">
+                            <input type="hidden" name="creator_id" value="<?php echo $creator_id; ?>">
+                            <input type="hidden" name="creator_username" value="<?php echo htmlspecialchars($creator_username); ?>">
+
+                            <div class="form-group">
+                                <label for="amount">Amount (in sats):</label>
+                                <input type="number" id="amount" name="amount" min="1000" step="1000" value="10000" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message (optional):</label>
+                                <textarea name="message" id="message" rows="2" maxlength="200"></textarea>
+                            </div>
+
+                            <div class="payment-buttons">
+                                <button type="submit" class="btn donate-btn">Send Bitcoin Tip</button>
+                                <button type="button" class="btn qr-btn" id="showQR">Show QR Code</button>
+                            </div>
+                        </form>
+
+                        <div id="bitcoin-qr" class="bitcoin-qr" style="display: none;">
+                            <h3>Scan to Pay</h3>
+                            <div class="qr-container">
+                                <!-- QR code will be inserted here via JavaScript -->
+                                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:<?php echo htmlspecialchars($creator_username); ?>?amount=0.0001" alt="Bitcoin QR Code">
+                            </div>
+                            <p class="bitcoin-address">bc1q...address</p>
+                            <p class="payment-note">Scan with any Bitcoin wallet to send a tip</p>
+                        </div>
                      </div>
                 </div>
             </div>
@@ -71,6 +99,31 @@ if ($creator->readOne()) {
             <p>&copy; <?php echo date('Y'); ?> BTCoffee - The easiest way to receive Bitcoin tips</p>
         </footer>
     </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const showQRButton = document.getElementById('showQR');
+            const bitcoinQR = document.getElementById('bitcoin-qr');
+
+            showQRButton.addEventListener('click', function() {
+                if (bitcoinQR.style.display === 'none') {
+                    bitcoinQR.style.display = 'block';
+                    showQRButton.textContent = 'Hide QR Code';
+                } else {
+                    bitcoinQR.style.display = 'none';
+                    showQRButton.textContent = 'Show QR Code';
+                }
+            });
+
+            // Update QR code when amount changes
+            const amountInput = document.getElementById('amount');
+            amountInput.addEventListener('change', function() {
+                const amount = parseFloat(amountInput.value) / 100000000; // Convert sats to BTC
+                const qrImage = document.querySelector('.qr-container img');
+                qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:bc1q...address?amount=${amount}`;
+            });
+        });
+    </script>
 </body>
 
 </html>
