@@ -8,6 +8,7 @@ class Creator {
     public $email;
     public $password;
     public $profile_link;
+    public $bitcoin_address; 
     public $created_at;
 
     public function __construct($db) {
@@ -60,6 +61,7 @@ class Creator {
             $this->username = $row['username'];
             $this->email = $row['email'];
             $this->profile_link = $row['profile_link'];
+            $this->bitcoin_address = $row['bitcoin_address'];
             $this->created_at = $row['created_at'];
             return true;
         }
