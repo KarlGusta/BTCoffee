@@ -84,10 +84,14 @@ if ($creator->readOne()) {
                         <div id="bitcoin-qr" class="bitcoin-qr" style="display: none;">
                             <h3>Scan to Pay</h3>
                             <div class="qr-container">
+                                <?php
+                                // Use a default address if the creator hasn't set one
+                                $bitcoin_address = !empty($creator->bitcoin_address) ? $creator->bitcoin_address : "bc1q...address";
+                                ?>
                                 <!-- QR code will be inserted here via JavaScript -->
-                                 <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:<?php echo htmlspecialchars($creator_username); ?>?amount=0.0001" alt="Bitcoin QR Code">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:<?php echo htmlspecialchars($bitcoin_address); ?>?amount=0.0001" alt="Bitcoin QR Code"> 
                             </div>
-                            <p class="bitcoin-address">bc1q...address</p>
+                            <p class="bitcoin-address"><?php echo htmlspecialchars($bitcoin_address); ?></p>
                             <p class="payment-note">Scan with any Bitcoin wallet to send a tip</p>
                         </div>
                      </div>
@@ -120,7 +124,8 @@ if ($creator->readOne()) {
             amountInput.addEventListener('change', function() {
                 const amount = parseFloat(amountInput.value) / 100000000; // Convert sats to BTC
                 const qrImage = document.querySelector('.qr-container img');
-                qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:bc1q...address?amount=${amount}`;
+                const bitcoinAddress = document.querySelector('.bitcoin-address').textContent;
+                qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:${bitcoinAddress}?amount=${amount}`;
             });
         });
     </script>
