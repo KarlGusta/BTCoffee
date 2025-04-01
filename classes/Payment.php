@@ -87,5 +87,26 @@ class Payment {
         return false;
     }
 
-    
+    /**
+     * Update payment status
+     * 
+     * @return bool Success or failure
+     */
+    public function updateStatus() {
+        $query = "UPDATE " . $this->table_name . " SET status = :status WHERE invoice_id = :invoice_id";
+        $stmt = $this->conn->prepare($query);
+
+        $this->status = htmlspecialchars(strip_tags($this->status));
+        $this->invoice_id = htmlspecialchars(strip_tags($this->invoice_id));
+
+        $stmt->bindParam(":status", $this->status);
+        $stmt->bindParam(":invoice_id", $this->invoice_id);
+
+        if ($stmt->execute()) {
+            return true;
+        }
+
+        return false;
+    }
 }
+?>
