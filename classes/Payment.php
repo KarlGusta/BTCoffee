@@ -59,4 +59,33 @@ class Payment {
 
         return false;
     }
+
+    /**
+     * Get payment by invoice ID
+     * 
+     * @return bool Success or failure
+     */
+    public function readByInvoiceId() {
+        $query = "SELECT * FROM " . $this->table_name . " WHERE invoice_id = ? LIMIT 0,1";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(1, $this->invoice_id);
+        $stmt->execute();
+
+        if ($stmt->rowCount() > 0) {
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            $this->id = $row['id'];
+            $this->creator_id = $row['creator_id'];
+            $this->amount = $row['amount'];
+            $this->currency = $row['currency'];
+            $this->message = $row['message'];
+            $this->lightning_invoice = $row['lightning_invoice'];
+            $this->status = $row['status'];
+            $this->created_at = $row['created_at'];
+            return true;
+        }
+
+        return false;
+    }
+
+    
 }
