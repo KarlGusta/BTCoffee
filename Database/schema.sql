@@ -8,3 +8,17 @@ CREATE TABLE creators (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  
 );
+
+CREATE TABLE payments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    creator_id INT NOT NULL,
+    amount INT NOT NULL,
+    currency VARCHAR(10) NOT NULL,
+    message TEXT,
+    invoice_id VARCHAR(100) NOT NULL,
+    lightning_invoice TEXT NOT NULL,
+    status VARCHAR(20) NOT NULL DEFAULT 'pending',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (creator_id) REFERENCES creators(id) 
+);
