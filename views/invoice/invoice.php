@@ -71,9 +71,83 @@ if ($payment->readByInvoiceId()) {
                     <?php else: ?>
                         <div class="payment-pending">
                             <h2>Scan to Pay</h2>
+                            <p>Amount: <?php echo number_format($payment->amount); ?> sats</p>
+
+                            <div class="qr-container">
+                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=<?php echo urlencode($payment->lightning_invoice); ?>" alt="Lightning Invoice QR Code">
+                            </div>
+
+                            <div class="invoice-text">
+                                <p>Lightning Invoice:</p>
+                                <textarea readonly onclick="this.select()"><?php echo $payment->lightning_invoice; ?></textarea>
+                                <button class="btn copy-btn" onclick="copyInvoice()">Copy Invoice</button>
+                            </div>
+
+                            <div class="payment-instructions">
+                                <p>1. Open your Lightning wallet</p>
+                                <p>2. Scan the QR code or paste the invoice</p>
+                                <p>3. Confirm the payment</p>
+                                <p>This page will automatically update when payment is received</p>
+                            </div>
+
+                            <div class="payment-status">
+                                <p>Status: <span id="status"><?php echo ucfirst($payment->status); ?></span></p>
+                                <p>Expires in: <span id="countdown">Loading...</span></p>
+                            </div>
                         </div>    
+                    <?php endif; ?>    
                 </div>
             </main>
+
+            <footer>
+                <p>&copy; <?php echo date('Y'); ?> BTCoffee - The easiest way to receive Bitcoin tips</p>
+            </footer>
         </div>
+
+        <script>
+            // Copy invoice to clipboard
+            function copyInvoice() {
+                const invoiceText = document.querySelector('.invoice-text textarea');
+                invoiceText.select();
+                document.execCommand('copy');
+
+                const copyBtn = document.querySelector('.copy-btn');
+                copyBtn.textContent = 'Copied!';
+                setTimeout(() => {
+                    copyBtn.textContent = 'Copy Invoice';
+                }, 2000);
+            }
+
+            // Set expiry countdown
+            document.addEventListener('DOMContentLoaded', function() {
+                // Set expiry time (15 minutes from now as an example)
+                const expiryTime = new Date();
+                expiryTime.setMinutes(expiryTime.getMinutes() + 15);
+
+                // Update countdown every second
+                const countdownElement = document.getElementById('countdown');
+
+                function updateCountdown() {
+                    const now = new Date();
+                    const timeLeft = expiryTime - now;
+
+                    if (timeLeft <= 0) {
+                        countdownElement.textContent = 'Expired';
+                        return;
+                    }
+
+                    const minutes = Math.floor(timeLeft / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+                    countdownElement.textContent = `${minutes}m ${seconds}s`;
+                }
+
+                // Initial update
+                updateCountdown();
+
+                // Update every second
+                setInterval(updateCountdown, 1000); 
+            })
+        </script>
     </body>
 </html>
