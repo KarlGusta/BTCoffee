@@ -7,20 +7,29 @@ include_once '../classes/Payment.php';
 $input = file_get_contents('php://input');
 $data = json_decode($input, true);
 
-// Verify the callback data
-if ($data && isset($data['id'])) {
+// Log the incoming webhook for debugging
+error_log('OpenNode Webhook Received: ' , $input);
+
+// Verify the callback data - OpenNode sends data in a specific format
+if ($data && isset($data['charge_id'])) {
     // Get database connection
     $database = new Database();
     $db = $database->getConnection();
 
     // Create payment object
     $payment = new Payment($db);
-    $payment->invoice_id = $data['id'];
+    $payment->invoice_id = $data['charge_id'];
 
     // Check if payment exists
     if ($payment->readByInvoiceId()) {
-        // Update payment status
-        $payment->status = $data['status'];
+        // Update payment status based on OpenNode status
+        if ($data['status'] === 'paid') {
+            $payment->status = 'paid';
+        } else if ($data['status'] === 'processing') {
+            $payment->status = 'processing';
+        } else if ($data['status'] === 'confirmed') {
+            $payment->status = 'confirmed';
+        }
 
         if ($payment->updateStatus()) {
             // Success - return 200 OK
