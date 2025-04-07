@@ -5,9 +5,10 @@ class LightningService {
 
     public function __construct() {
         // Load configuration from config file
+        $config = include_once __DIR__ . '/../config/lightning_config.php';
         // In production, these should be stored securely
-        $this->api_key = getenv('LIGHTNING_API_KEY') ?: 'your_test_api_key';
-        $this->api_url = getenv('LIGHTNING_API_URL') ?: 'https://api.opennode.com/v1/';
+        $this->api_key = $config['api_key'];
+        $this->api_url = $config['api_url'];
     }
 
     /**
@@ -24,7 +25,8 @@ class LightningService {
             'amount' => $amount,
             'description' => $description,
             'order_id' =>'btcoffee_' . $creator_id . '_' . time(),
-            'callback_url' => 'http://localhost/BTCoffee/handlers/payment_callback.php'
+            'callback_url' => 'http://localhost/BTCoffee/handlers/payment_callback.php',
+            'auto_settle' => true
         ];
 
         // Make the API request

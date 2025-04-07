@@ -1,4 +1,7 @@
 <?php
+// Include paths configuration
+include_once '../config/paths.php';
+
 // Include database and necessary classes
 include_once '../config/database.php';
 include_once '../classes/Creator.php';
@@ -67,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
             if ($payment->create()) {
                 // Redirect to payment page
-                header("Location: ../views/payment/invoice.php?id=" . $invoice_data['id']);
+                header("Location: " . path('views', 'payment') . "invoice.php?id=" . $invoice_data['id']);
                 exit();
             } else {
                 $error_message = "Failed to create payment record";
@@ -79,13 +82,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // If there was an error, redirect back to the creator page with the error
     if(!empty($error_message)) {
-        header("Location: ../views/creator/creator.php?username={$creator_username}&error=" . urlencode($error_message));
+        header("Location: " . path('views', 'creator') . "creator.php?username={$creator_username}&error=" . urlencode($error_message));
         exit();
     }
 }
 else {
     // If not a POST request, redirect to home
-    header("Location: ../index.php");
+    header("Location: " . path('home'));
     exit();
 }
 ?>

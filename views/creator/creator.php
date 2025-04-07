@@ -1,7 +1,8 @@
 <?php
-// Include database and creator class
+// Include database, creator class, and paths configuration
 include_once '../../config/database.php';
 include_once '../../classes/Creator.php';
+include_once '../../config/paths.php';
 
 // Get username from URL
 $username = isset($_GET['username']) ? $_GET['username'] : die('ERROR: Missing username.');
@@ -22,7 +23,7 @@ if ($creator->readOne()) {
     $creator_profile_link = $creator->profile_link;
 } else {
     // Creator not found
-    header("Location: ../index.php");
+    header("Location: " . path('home'));
     exit();
 }
 ?>
@@ -34,14 +35,14 @@ if ($creator->readOne()) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $creator_username; ?>'s Profile</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="<?php echo path('assets', 'css'); ?>/style.css">
 </head>
 
 <body>
     <div class="container">
         <header>
             <nav>
-                <a href="../index.php">Home</a>
+                <a href="<?php echo path('home'); ?>">Home</a>
             </nav>
         </header>
         <main>
@@ -61,7 +62,7 @@ if ($creator->readOne()) {
                     <h2>Support <?php echo htmlspecialchars($creator_username); ?></h2>
                     
                      <div class="donation-options">
-                        <form action="../../handlers/payment_handler.php" method="post" class="payment-form">
+                        <form action="<?php echo path('handlers'); ?>/payment_handler.php" method="post" class="payment-form">
                             <input type="hidden" name="creator_id" value="<?php echo $creator_id; ?>">
                             <input type="hidden" name="creator_username" value="<?php echo htmlspecialchars($creator_username); ?>">
 
