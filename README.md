@@ -73,6 +73,18 @@ $api_key = 'YOUR_LIGHTNING_API_KEY';
 $provider_url = 'https://your-lightning-provider.com/api'; 
 ```
 
+## Lightning Network Integration
+
+This project uses OpenNode for Lightning Network payments. To set up:
+
+1. Create an account at [OpenNode](https://www.opennode.com/)
+2. Get your API keys from the dashboard
+3. Add your API keys to `config/lightning_config.php`
+4. Set up a webhook in your OpenNode dashboard pointing to:
+`https://yourdormain.com/handlers/payment_callback.php` 
+
+For testing, use OpenNode's test environment and API keys.
+
 ## Future Enhancements
 
 - Add email notifications for successful payments
