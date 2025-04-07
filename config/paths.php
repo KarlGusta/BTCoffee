@@ -16,7 +16,9 @@ class PathConfig
                     'home' => '/', 
                     'views' => [
                         'registration' => '/views/registration/',
-                        'activities' => '/views/activities/'
+                        'activities' => '/views/activities/',
+                        'creator' => '/views/creator/',
+                        'payment' => '/views/payment/'
                     ],
                     'handlers' => '/handlers/',
                     'auth' => [
