@@ -4,7 +4,8 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Include the path config. This is to make it easy to manage my URLs when I upload to production, that is cpanel
-require_once __DIR__ . '/../config/paths.php';
+// require_once __DIR__ . '/../config/paths.php';
+include __DIR__ . '/../config/paths.php';
 ?>
 
 <!doctype html>

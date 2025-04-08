@@ -15,10 +15,9 @@ class PathConfig
                 'paths' => [
                     'home' => '/', 
                     'views' => [
-                        'registration' => '/views/registration/',
-                        'activities' => '/views/activities/',
                         'creator' => '/views/creator/',
-                        'payment' => '/views/payment/'
+                        'payment' => '/views/payment/',
+                        'registration' => '/views/registration/'
                     ],
                     'handlers' => '/handlers/',
                     'auth' => [
@@ -39,7 +38,7 @@ class PathConfig
                         'paths' => '/config/paths.php'
                     ],
                     'assets' => [
-                        'dist' => '/dist/',
+                        'dist' => '/assets/dist/',
                         'css' => '/assets/css/'
                     ],
                     'includes' => [
