@@ -26,6 +26,7 @@ include '../../includes/header.php';
                 <a href="#" class="d-block"><img src="<?php echo path('assets', 'img'); ?>karl_image.png" class="card-img-top" style="max-height: 320px; object-fit: cover;"></a>
                 <p class="mt-2 text-muted">I am an avid thrifter & reseller on Youtube Ebay & Mercari. I offer a variety of content including Thrift Hauls, Shop Along's, Diy's, Crafts, Cooking & Baking. </p>
                 <hr>
+                <h2 class="h3">Recent supporters</h2>
                 <div class="divide-y">
                   <div>
                     <div class="row">
@@ -34,12 +35,24 @@ include '../../includes/header.php';
                       </div>
                       <div class="col">
                         <div class="text-truncate">
-                          <strong>Jeffie Lewzey</strong> commented on your <strong>"I'm not a witch."</strong> post.
+                          <strong>Someone </strong>bought 5 coffees.
                         </div>
-                        <div class="text-muted">yesterday</div>
+                        <div class="text-muted">Thanks so much!</div>
                       </div>
                       <div class="col-auto align-self-center">
-                        <div class="badge bg-primary"></div>
+                        <div class="dropdown">
+                          <a href="#" class="btn-action dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dots">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            </svg>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">Share</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -50,12 +63,23 @@ include '../../includes/header.php';
                       </div>
                       <div class="col">
                         <div class="text-truncate">
-                          It's <strong>Mallory Hulme</strong>'s birthday. Wish him well!
+                          <strong>Someone </strong>bought 5 coffees.
                         </div>
-                        <div class="text-muted">2 days ago</div>
                       </div>
                       <div class="col-auto align-self-center">
-                        <div class="badge bg-primary"></div>
+                        <div class="dropdown">
+                          <a href="#" class="btn-action dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dots">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            </svg>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">Share</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -66,15 +90,26 @@ include '../../includes/header.php';
                       </div>
                       <div class="col">
                         <div class="text-truncate">
-                          <strong>Dunn Slane</strong> posted <strong>"Well, what do you want?"</strong>.
+                          <strong>Someone </strong>bought 5 coffees.
                         </div>
-                        <div class="text-muted">today</div>
                       </div>
                       <div class="col-auto align-self-center">
-                        <div class="badge bg-primary"></div>
+                        <div class="dropdown">
+                          <a href="#" class="btn-action dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dots">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            </svg>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">Share</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>     
+                  </div>
                   <div>
                     <div class="row">
                       <div class="col-auto">
@@ -82,15 +117,27 @@ include '../../includes/header.php';
                       </div>
                       <div class="col">
                         <div class="text-truncate">
-                          <strong>Dunn Slane</strong> posted <strong>"Well, what do you want?"</strong>.
+                          <strong>Someone </strong>bought 5 coffees.
                         </div>
-                        <div class="text-muted">today</div>
+                        <div class="text-muted">Thanks so much!</div>
                       </div>
                       <div class="col-auto align-self-center">
-                        <div class="badge bg-primary"></div>
+                        <div class="dropdown">
+                          <a href="#" class="btn-action dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dots">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            </svg>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">Share</a>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>    
+                  </div>
                   <div>
                     <div class="row">
                       <div class="col-auto">
@@ -98,10 +145,25 @@ include '../../includes/header.php';
                       </div>
                       <div class="col">
                         <div class="text-truncate">
-                          <strong>Arlie Armstead</strong> sent a Review Request to <strong>Amanda Blake</strong>.
+                          <strong>Someone </strong>bought 5 coffees.
                         </div>
-                        <div class="text-muted">2 days ago</div>
+                        <div class="text-muted">Thanks so much!</div>
                       </div>
+                      <div class="col-auto align-self-center">
+                        <div class="dropdown">
+                          <a href="#" class="btn-action dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dots">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            </svg>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">Share</a>
+                          </div>
+                        </div>
+                      </div></form>
                     </div>
                   </div>
                 </div>
