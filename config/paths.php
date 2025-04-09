@@ -39,7 +39,8 @@ class PathConfig
                     ],
                     'assets' => [
                         'dist' => '/assets/dist/',
-                        'css' => '/assets/css/'
+                        'css' => '/assets/css/',
+                        'img' => '/assets/img/'
                     ],
                     'includes' => [
                         'auth' => '/includes/auth.php',

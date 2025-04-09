@@ -20,62 +20,114 @@ include '../../includes/header.php';
         <div class="col-lg-6">
           <div class="card">
             <div class="card-body">
-              <h3 class="card-title">Traffic summary</h3>
-              <div id="chart-mentions" class="chart-lg"></div>
+              <div class="col">
+                <h2 class="h3">About The Thrill Of The Thrift</h2>
+                <p class="mb-2 text-muted">I create a variety of content but mainly thrifting videos.</p>
+                <a href="#" class="d-block"><img src="<?php echo path('assets', 'img'); ?>karl_image.png" class="card-img-top" style="max-height: 320px; object-fit: cover;"></a>
+                <p class="mt-2 text-muted">I am an avid thrifter & reseller on Youtube Ebay & Mercari. I offer a variety of content including Thrift Hauls, Shop Along's, Diy's, Crafts, Cooking & Baking. </p>
+                <hr>
+                <div class="divide-y">
+                  <div>
+                    <div class="row">
+                      <div class="col-auto">
+                        <span class="avatar">JL</span>
+                      </div>
+                      <div class="col">
+                        <div class="text-truncate">
+                          <strong>Jeffie Lewzey</strong> commented on your <strong>"I'm not a witch."</strong> post.
+                        </div>
+                        <div class="text-muted">yesterday</div>
+                      </div>
+                      <div class="col-auto align-self-center">
+                        <div class="badge bg-primary"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="row">
+                      <div class="col-auto">
+                        <span class="avatar" style="background-image: url(./static/avatars/002m.jpg)"></span>
+                      </div>
+                      <div class="col">
+                        <div class="text-truncate">
+                          It's <strong>Mallory Hulme</strong>'s birthday. Wish him well!
+                        </div>
+                        <div class="text-muted">2 days ago</div>
+                      </div>
+                      <div class="col-auto align-self-center">
+                        <div class="badge bg-primary"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="row">
+                      <div class="col-auto">
+                        <span class="avatar" style="background-image: url(./static/avatars/003m.jpg)"></span>
+                      </div>
+                      <div class="col">
+                        <div class="text-truncate">
+                          <strong>Dunn Slane</strong> posted <strong>"Well, what do you want?"</strong>.
+                        </div>
+                        <div class="text-muted">today</div>
+                      </div>
+                      <div class="col-auto align-self-center">
+                        <div class="badge bg-primary"></div>
+                      </div>
+                    </div>
+                  </div>     
+                  <div>
+                    <div class="row">
+                      <div class="col-auto">
+                        <span class="avatar" style="background-image: url(./static/avatars/003m.jpg)"></span>
+                      </div>
+                      <div class="col">
+                        <div class="text-truncate">
+                          <strong>Dunn Slane</strong> posted <strong>"Well, what do you want?"</strong>.
+                        </div>
+                        <div class="text-muted">today</div>
+                      </div>
+                      <div class="col-auto align-self-center">
+                        <div class="badge bg-primary"></div>
+                      </div>
+                    </div>
+                  </div>    
+                  <div>
+                    <div class="row">
+                      <div class="col-auto">
+                        <span class="avatar">AA</span>
+                      </div>
+                      <div class="col">
+                        <div class="text-truncate">
+                          <strong>Arlie Armstead</strong> sent a Review Request to <strong>Amanda Blake</strong>.
+                        </div>
+                        <div class="text-muted">2 days ago</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
         <div class="col-lg-6">
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Basic form</h3>
+              <h3 class="card-title">Buy The Thrill Of The Thrift a coffee</h3>
             </div>
             <div class="card-body">
               <form>
                 <div class="form-group mb-3 ">
-                  <label class="form-label">Email address</label>
                   <div>
                     <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
-                    <small class="form-hint">We'll never share your email with anyone else.</small>
                   </div>
                 </div>
                 <div class="form-group mb-3 ">
-                  <label class="form-label">Password</label>
                   <div>
                     <input type="password" class="form-control" placeholder="Password">
-                    <small class="form-hint">
-                      Your password must be 8-20 characters long, contain letters and numbers, and must not contain
-                      spaces, special characters, or emoji.
-                    </small>
-                  </div>
-                </div>
-                <div class="form-group mb-3 ">
-                  <label class="form-label">Select</label>
-                  <div>
-                    <select class="form-select">
-                      <option>Option 1</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group mb-3">
-                  <label class="form-label">Checkboxes</label>
-                  <div>
-                    <label class="form-check">
-                      <input class="form-check-input" type="checkbox" checked="">
-                      <span class="form-check-label">Option 1</span>
-                    </label>
-                    <label class="form-check">
-                      <input class="form-check-input" type="checkbox">
-                      <span class="form-check-label">Option 2</span>
-                    </label>
-                    <label class="form-check">
-                      <input class="form-check-input" type="checkbox" disabled="">
-                      <span class="form-check-label">Option 3</span>
-                    </label>
                   </div>
                 </div>
                 <div class="form-footer">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary w-100 form-control-rounded">Submit</button>
                 </div>
               </form>
             </div>
