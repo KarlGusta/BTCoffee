@@ -1,3 +1,6 @@
+/* Import Bricolage Grotesque font from Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&display=swap');
+
 /* Payment form styles */
 .payment-form {
     margin-bottom: 20px;
@@ -16,9 +19,11 @@
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #E7E7E7;
 }
 
 .payment-buttons {
@@ -27,11 +32,12 @@
 }
 
 .btn {
-    padding: 10px 15px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .donate-btn {
@@ -155,4 +161,30 @@
     font-size: 0.9em;
     color: #667;
     margin-top: 5px;
+}
+
+.card-custom {
+    border-radius: 30px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card-header-custom {
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    background-color: #f8f9fa !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.btn-custom {
+    background-color: #000000 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.2s ease !important;
+    padding: 15px 25px !important;
+    font-size: 18px !important;
+}
+
+body, input, button, textarea, select {
+    font-family: 'Bricolage Grotesque', sans-serif;
 }

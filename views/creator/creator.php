@@ -18,7 +18,7 @@ include '../../includes/header.php';
     <div class="container-xl">
       <div class="row row-deck row-cards">
         <div class="col-lg-6">
-          <div class="card">
+          <div class="card card-custom">
             <div class="card-body">
               <div class="col">
                 <h2 class="h3">About The Thrill Of The Thrift</h2>
@@ -172,7 +172,7 @@ include '../../includes/header.php';
           </div>
         </div>
         <div class="col-lg-6">
-          <div class="card">
+          <div class="card card-custom">
             <div class="card-header">
               <h3 class="card-title">Buy The Thrill Of The Thrift a coffee</h3>
             </div>
@@ -189,7 +189,7 @@ include '../../includes/header.php';
                   </div>
                 </div>
                 <div class="form-footer">
-                  <button type="submit" class="btn btn-primary w-100 form-control-rounded">Submit</button>
+                  <button type="submit" class="btn btn-primary w-100 form-control-rounded btn-custom">Submit</button>
                 </div>
               </form>
             </div>

@@ -25,8 +25,12 @@ include __DIR__ . '/../config/paths.php';
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Dashboard - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
 
+  <!-- Favicon -->
+  <link rel="icon" href="<?php echo path('assets', 'img'); ?>favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="<?php echo path('assets', 'img'); ?>favicon.ico" type="image/x-icon">
+
   <!-- Custom CSS -->
-  <link href="<?php echo path('assets', 'css'); ?>styles.css" rel="stylesheet" />
+  <link href="<?php echo path('assets', 'css'); ?>style.css" rel="stylesheet" />
 
   <!-- CSS files - Updated with path() function -->
   <link href="<?php echo path('assets', 'dist'); ?>css/tabler.min.css" rel="stylesheet" />
@@ -50,7 +54,7 @@ include __DIR__ . '/../config/paths.php';
           <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
             <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
             <div class="d-none d-xl-block ps-2">
-              <div>Paweł Kuna</div>
+              <div>The Thrill Of The Thrift</div>
               <div class="mt-1 small text-muted">132 supporters</div>
             </div>
           </a>
@@ -69,17 +73,14 @@ include __DIR__ . '/../config/paths.php';
                     </svg>
                   </a>
                   <div class="dropdown-menu dropdown-menu-end">
-                    <a class="dropdown-item" href="#">Share</a>
+                    <a class="dropdown-item" href="#">👥 Follow</a>
+                    <a class="dropdown-item" href="#">🔗 Share</a>
+                    <a class="dropdown-item" href="#">🚩 Report</a>
                   </div>
                 </div>
               </div>
-              <a href="https://github.com/sponsors/codecalm" class="btn" target="_blank" rel="noreferrer">
-                <!-- Download SVG icon from http://tabler-icons.io/i/heart -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon text-pink" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                  <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                  <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
-                </svg>
-                Sponsor
+              <a href="https://github.com/sponsors/codecalm" class="btn btn-link text-dark" target="_blank" rel="noreferrer">
+                Login
               </a>
             </div>
           </div>
