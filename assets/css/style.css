@@ -193,8 +193,15 @@ body, input, button, textarea, select {
 .form-selectgroup {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  justify-content: center;
+  gap: 8px !important;
+  margin-bottom: 15px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 6px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-selectgroup-item {
@@ -240,8 +247,9 @@ body, input, button, textarea, select {
     padding: 15px;
     font-size: 20px !important;
     font-weight: 600;
-    height: 60px;
-    width: 60px;
+    height: 45px;
+    width: 45px;
+    color: #A5A5A5;
     border-radius: 50%;
     background-color: #f5f5f5;
     transition: all 0.2s ease;
@@ -254,10 +262,10 @@ body, input, button, textarea, select {
     padding: 15px;
     font-size: 25px !important;
     font-weight: 600;
-    height: 60px;
-    width: 60px;
+    height: 45px;
+    width: 45px;
     border-radius: 50%;
-    background-color: #f5f5f5;
+    background-color: #ffffff;
     transition: all 0.2s ease;
   }
 
@@ -294,14 +302,15 @@ body, input, button, textarea, select {
 
 /* For the custom number input at the end */
 .form-selectgroup-item:last-child input[type="number"] {
-  width: 60px;
-  height: 60px;
+  width: 55px;
+  height: 45px;
   padding: 10px;
   font-size: 25px !important;
   font-weight: 600;
   text-align: center;
   border: 2px solid #ddd;
-  border-radius: 10px !important;
+  border-radius: 15px !important;
+  background-color: #ffffff;
   /* Prevent scrolling behavior completely */
   overflow: hidden;
 }

@@ -232,7 +232,7 @@ include '../../includes/header.php';
                       <span class="form-selectgroup-label-input">3</span>
                     </label>
                     <label class="form-selectgroup-item">
-                      <input type="number" id="custom_count" name="custom_count" class="form-control form-selectgroup-input-custom" min="1" placeholder="10" style="width: 80px; margin-left: 10px;">
+                      <input type="number" id="custom_count" name="custom_count" class="form-selectgroup-input-custom" min="1" placeholder="10">
                     </label>
                   </div>
                   <input type="hidden" name="amount" id="amount" value="1000">
