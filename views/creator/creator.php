@@ -20,14 +20,14 @@ $creator->username = $username;
 
 // Try to fetch creator details
 if ($creator->readOne()) {
-    $creator_id = $creator->id;
-    $creator_username = $creator->username;
-    $creator_email = $creator->email;
-    $creator_profile_link = $creator->profile_link;
+  $creator_id = $creator->id;
+  $creator_username = $creator->username;
+  $creator_email = $creator->email;
+  $creator_profile_link = $creator->profile_link;
 } else {
-    // Creator not found
-    header("Location: " . path('home'));
-    exit();
+  // Creator not found
+  header("Location: " . path('home'));
+  exit();
 }
 
 // Only include header files after all potential redirects
@@ -192,7 +192,8 @@ include '../../includes/header.php';
                             <a class="dropdown-item" href="#">Share</a>
                           </div>
                         </div>
-                      </div></form>
+                      </div>
+                      </form>
                     </div>
                   </div>
                 </div>
@@ -206,16 +207,28 @@ include '../../includes/header.php';
               <h3 class="card-title">Buy <?php echo htmlspecialchars($creator_username); ?> a coffee</h3>
             </div>
             <div class="card-body">
-              <form>
-                <div class="form-group mb-3 ">
-                  <div>
-                    <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Enter email">
+              <form action="<?php echo path('handlers'); ?>/payment_handler.php" method="post" class="payment-form">
+                <input type="hidden" name="creator_id" value="<?php echo $creator_id; ?>">
+                <input type="hidden" name="creator_username" value="<?php echo htmlspecialchars($creator_username); ?>">
+
+                <div class="form-group mb-3">
+                  <div class="amount-input-group">
+                    <input type="number" id="amount" name="amount" min="1000" step="1000" value="10000" required style="width: 80%;">
+                    <select id="currency" name="currency" class="form-select" style="width: 20%;">
+                      <option value="sats">sats</option>
+                      <option value="usd">USD</option>
+                      <option value="eur">EUR</option>
+                    </select>
                   </div>
+                  <p id="conversion-display">≈ $0.00 USD</p>
                 </div>
-                <div class="form-group mb-3 ">
-                  <div>
-                    <input type="password" class="form-control" placeholder="Password">
-                  </div>
+
+                <div class="form-group mb-3">
+                  <input type="text" class="form-control" placeholder="Name or @yoursocial">
+                </div>
+
+                <div class="form-group mb-3">
+                  <textarea name="message" id="message" rows="5" maxlength="200" placeholder="Say something nice..."></textarea>
                 </div>
                 <div class="form-footer">
                   <button type="submit" class="btn btn-primary w-100 form-control-rounded btn-custom">Submit</button>

@@ -23,7 +23,7 @@ include __DIR__ . '/../config/paths.php';
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <title>Dashboard - Tabler - Premium and Open Source dashboard template with responsive and high quality UI.</title>
+  <title>BTCoffee - Easiest way to tip with Bitcoin</title>
 
   <!-- Favicon -->
   <link rel="icon" href="<?php echo path('assets', 'img'); ?>favicon.ico" type="image/x-icon">
