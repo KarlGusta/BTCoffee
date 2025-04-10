@@ -311,8 +311,14 @@ include '../../includes/header.php';
         updateAmount();
       });
       
-      // Initial update
-      updateAmount();
+      // Don't update automatically on page load - only when user interacts with inputs
+      // Initial amount should match the checked radio button (which defaults to 1)
+      const initialSelectedRadio = document.querySelector('input[name="coffee_count"]:checked');
+      if (initialSelectedRadio) {
+        const initialAmount = baseCoffeeAmount * parseInt(initialSelectedRadio.value);
+        amountInput.value = initialAmount;
+        supportButton.textContent = `Support with ${initialAmount.toLocaleString()} sats`;
+      }
     });
   </script>
 </div>
