@@ -272,14 +272,36 @@ body, input, button, textarea, select {
   opacity: 0;
 }
 
+.form-selectgroup-input-custom {
+  /* Remove arrows for number inputs in all major browsers */
+  -moz-appearance: textfield; /* Firefox */
+  /* Prevent scrolling behavior */
+  pointer-events: none;
+}
+
+/* Make the input field itself accept pointer events for cursor and clicking */
+.form-selectgroup-input-custom:focus {
+  pointer-events: auto;
+}
+
+/* Hide spinner buttons for Webkit browsers (Chrome, Safari, newer Edge) */
+.form-selectgroup-input-custom::-webkit-outer-spin-button,
+.form-selectgroup-input-custom::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  display: none;
+}
+
 /* For the custom number input at the end */
 .form-selectgroup-item:last-child input[type="number"] {
   width: 60px;
   height: 60px;
   padding: 10px;
-  font-size: 30px !important;
+  font-size: 25px !important;
+  font-weight: 600;
   text-align: center;
-  border-radius: 50%;
   border: 2px solid #ddd;
-  border-radius: 30px !important;
+  border-radius: 10px !important;
+  /* Prevent scrolling behavior completely */
+  overflow: hidden;
 }

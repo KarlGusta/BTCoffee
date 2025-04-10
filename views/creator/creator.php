@@ -232,8 +232,7 @@ include '../../includes/header.php';
                       <span class="form-selectgroup-label-input">3</span>
                     </label>
                     <label class="form-selectgroup-item">
-                      <input type="number" name="custom_count" id="custom_count" class="form-selectgroup-input" value="10" placeholder="10">
-                      <span class="form-selectgroup-label-input"></span>
+                      <input type="number" id="custom_count" name="custom_count" class="form-control form-selectgroup-input-custom" min="1" placeholder="10" style="width: 80px; margin-left: 10px;">
                     </label>
                   </div>
                   <input type="hidden" name="amount" id="amount" value="1000">
@@ -315,10 +314,3 @@ include '../../includes/header.php';
     });
   </script>
 </div>
-
-<style>
-#custom_count::placeholder {
-  color: #6c757d;
-  opacity: 1; /* Firefox requires this to show the custom color */
-}
-</style>
