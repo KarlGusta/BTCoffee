@@ -2,6 +2,35 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
+// Include database, creator class, and paths configuration
+include_once '../../config/database.php';
+include_once '../../classes/Creator.php';
+include_once '../../config/paths.php';
+
+// Get username from URL
+$username = isset($_GET['username']) ? $_GET['username'] : die('ERROR: Missing username.');
+
+// Get database connection
+$database = new Database();
+$db = $database->getConnection();
+
+// Create creator object
+$creator = new Creator($db);
+$creator->username = $username;
+
+// Try to fetch creator details
+if ($creator->readOne()) {
+    $creator_id = $creator->id;
+    $creator_username = $creator->username;
+    $creator_email = $creator->email;
+    $creator_profile_link = $creator->profile_link;
+} else {
+    // Creator not found
+    header("Location: " . path('home'));
+    exit();
+}
+
+// Only include header files after all potential redirects
 include '../../includes/header.php';
 ?>
 
@@ -21,7 +50,7 @@ include '../../includes/header.php';
           <div class="card card-custom">
             <div class="card-body">
               <div class="col">
-                <h2 class="h3">About The Thrill Of The Thrift</h2>
+                <h2 class="h3">About <?php echo htmlspecialchars($creator_username); ?></h2>
                 <p class="mb-2 text-muted">I create a variety of content but mainly thrifting videos.</p>
                 <a href="#" class="d-block"><img src="<?php echo path('assets', 'img'); ?>karl_image.png" class="card-img-top" style="max-height: 320px; object-fit: cover;"></a>
                 <p class="mt-2 text-muted">I am an avid thrifter & reseller on Youtube Ebay & Mercari. I offer a variety of content including Thrift Hauls, Shop Along's, Diy's, Crafts, Cooking & Baking. </p>
@@ -174,7 +203,7 @@ include '../../includes/header.php';
         <div class="col-lg-6">
           <div class="card card-custom">
             <div class="card-header">
-              <h3 class="card-title">Buy The Thrill Of The Thrift a coffee</h3>
+              <h3 class="card-title">Buy <?php echo htmlspecialchars($creator_username); ?> a coffee</h3>
             </div>
             <div class="card-body">
               <form>
