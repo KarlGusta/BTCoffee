@@ -79,7 +79,7 @@ include __DIR__ . '/../config/paths.php';
                   </div>
                 </div>
               </div>
-              <a href="https://github.com/sponsors/codecalm" class="btn btn-link text-dark" target="_blank" rel="noreferrer">
+              <a href="#" class="btn btn-link text-dark" target="_blank" rel="noreferrer">
                 Login
               </a>
             </div>

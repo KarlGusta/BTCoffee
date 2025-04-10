@@ -212,15 +212,31 @@ include '../../includes/header.php';
                 <input type="hidden" name="creator_username" value="<?php echo htmlspecialchars($creator_username); ?>">
 
                 <div class="form-group mb-3">
-                  <div class="amount-input-group">
-                    <input type="number" id="amount" name="amount" min="1000" step="1000" value="10000" required style="width: 80%;">
-                    <select id="currency" name="currency" class="form-select" style="width: 20%;">
-                      <option value="sats">sats</option>
-                      <option value="usd">USD</option>
-                      <option value="eur">EUR</option>
-                    </select>
+                  <div class="form-selectgroup">
+                    <label class="form-selectgroup-item">
+                      <span class="form-selectgroup-label-coffee">☕</span>
+                    </label>
+                    <label class="form-selectgroup-item">
+                      <span class="form-selectgroup-label-x-sign">X</span>
+                    </label>
+                    <label class="form-selectgroup-item">
+                      <input type="radio" name="coffee_count" value="1" class="form-selectgroup-input" checked>
+                      <span class="form-selectgroup-label-input">1</span>
+                    </label>
+                    <label class="form-selectgroup-item">
+                      <input type="radio" name="coffee_count" value="2" class="form-selectgroup-input">
+                      <span class="form-selectgroup-label-input">2</span>
+                    </label>
+                    <label class="form-selectgroup-item">
+                      <input type="radio" name="coffee_count" value="3" class="form-selectgroup-input">
+                      <span class="form-selectgroup-label-input">3</span>
+                    </label>
+                    <label class="form-selectgroup-item">
+                      <input type="number" name="custom_count" id="custom_count" class="form-selectgroup-input" value="10" placeholder="10">
+                      <span class="form-selectgroup-label-input"></span>
+                    </label>
                   </div>
-                  <p id="conversion-display">≈ $0.00 USD</p>
+                  <input type="hidden" name="amount" id="amount" value="1000">
                 </div>
 
                 <div class="form-group mb-3">
@@ -231,7 +247,7 @@ include '../../includes/header.php';
                   <textarea name="message" id="message" rows="5" maxlength="200" placeholder="Say something nice..."></textarea>
                 </div>
                 <div class="form-footer">
-                  <button type="submit" class="btn btn-primary w-100 form-control-rounded btn-custom">Submit</button>
+                  <button type="submit" id="support-button" class="btn btn-primary w-100 form-control-rounded btn-custom">Support with 1,000 sats</button>
                 </div>
               </form>
             </div>
@@ -242,3 +258,67 @@ include '../../includes/header.php';
   </div>
 
   <?php include '../../includes/footer.php'; ?>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Base amount per coffee in sats
+      const baseCoffeeAmount = 1000;
+      
+      // Get all coffee count radio buttons
+      const coffeeRadios = document.querySelectorAll('input[name="coffee_count"]');
+      const customCountInput = document.getElementById('custom_count');
+      const amountInput = document.getElementById('amount');
+      const supportButton = document.getElementById('support-button');
+      
+      // Function to update amount and button text
+      function updateAmount() {
+        let coffeeCount = 1; // Default to 1
+        
+        // Check if any radio is selected
+        const selectedRadio = document.querySelector('input[name="coffee_count"]:checked');
+        if (selectedRadio) {
+          coffeeCount = parseInt(selectedRadio.value);
+        } else if (customCountInput.value) {
+          // Use custom count if no radio selected and custom has a value
+          coffeeCount = parseInt(customCountInput.value);
+        }
+        
+        // Calculate total amount
+        const totalAmount = baseCoffeeAmount * coffeeCount;
+        
+        // Update hidden amount input
+        amountInput.value = totalAmount;
+        
+        // Update button text
+        supportButton.textContent = `Support with ${totalAmount.toLocaleString()} sats`;
+      }
+      
+      // Add event listeners to all inputs
+      coffeeRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+          // When a radio is selected, clear the custom input
+          customCountInput.value = '';
+          updateAmount();
+        });
+      });
+      
+      customCountInput.addEventListener('input', function() {
+        // When custom input changes, uncheck any selected radio
+        coffeeRadios.forEach(radio => {
+          radio.checked = false;
+        });
+        updateAmount();
+      });
+      
+      // Initial update
+      updateAmount();
+    });
+  </script>
+</div>
+
+<style>
+#custom_count::placeholder {
+  color: #6c757d;
+  opacity: 1; /* Firefox requires this to show the custom color */
+}
+</style>
