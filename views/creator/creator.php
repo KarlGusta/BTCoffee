@@ -277,6 +277,8 @@ include '../../includes/header.php';
         const selectedRadio = document.querySelector('input[name="coffee_count"]:checked');
         if (selectedRadio) {
           coffeeCount = parseInt(selectedRadio.value);
+          // Update custom input placeholder to match selected value
+          customCountInput.placeholder = coffeeCount;
         } else if (customCountInput.value) {
           // Use custom count if no radio selected and custom has a value
           coffeeCount = parseInt(customCountInput.value);
