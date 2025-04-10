@@ -54,7 +54,7 @@ include __DIR__ . '/../config/paths.php';
           <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
             <span class="avatar avatar-sm" style="background-image: url(./static/avatars/000m.jpg)"></span>
             <div class="d-none d-xl-block ps-2">
-              <div>The Thrill Of The Thrift</div>
+              <div><?php echo htmlspecialchars($creator_username); ?></div>
               <div class="mt-1 small text-muted">132 supporters</div>
             </div>
           </a>
