@@ -45,7 +45,7 @@ include '../../includes/header.php';
   </div>
   <div class="page-body">
     <div class="container-xl">
-      <div class="row row-deck row-cards">
+      <div class="row row-cards">
         <div class="col-lg-6">
           <div class="card card-custom">
             <div class="card-body">
