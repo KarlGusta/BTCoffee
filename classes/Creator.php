@@ -17,7 +17,7 @@ class Creator {
 
     public function create() {
         // Generate unique profile link
-        $this->profile_link = "http://localhost/BTCoffee/creator/" . $this->username;
+        $this->profile_link = "http://localhost/BTCoffee/" . $this->username;
 
         // Hash the password
         $password_hash = password_hash($this->password, PASSWORD_BCRYPT);

@@ -1,4 +1,4 @@
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    RewriteRule ^creator/([a-zA-Z0-9_-]+)$ views/creator/creator.php?username=$1 [L,QSA]
+    RewriteRule ^([a-zA-Z0-9_-]+)$ views/creator/creator.php?username=$1 [L,QSA]
 </IfModule> 
