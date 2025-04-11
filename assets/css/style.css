@@ -1,6 +1,28 @@
-/* Import Bricolage Grotesque font from Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;500;600;700&display=swap');
-
+@font-face {
+    font-family: 'BricolageGrotesque';
+    src: url('./assets/fonts/BricolageGrotesque-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'BricolageGrotesque';
+    src: url('./assets/fonts/BricolageGrotesque-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'BricolageGrotesque';
+    src: url('./assets/fonts/BricolageGrotesque-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  body {
+    font-family: 'BricolageGrotesque', sans-serif;
+  }
+  
 /* Payment form styles */
 .payment-form {
     margin-bottom: 20px;
@@ -183,10 +205,6 @@
     transition: transform 0.2s ease !important;
     padding: 15px 25px !important;
     font-size: 18px !important;
-}
-
-body, input, button, textarea, select {
-    font-family: 'Bricolage Grotesque', sans-serif;
 }
 
 /* Coffee selection form enhancements */

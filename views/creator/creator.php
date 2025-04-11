@@ -142,7 +142,7 @@ include '../../includes/header.php';
                   <div>
                     <div class="row">
                       <div class="col-auto">
-                        <span class="avatar" style="background-image: url(./static/avatars/003m.jpg)"></span>
+                        <span class="avatar" style="background-image: url(../../assets/img/coffee1.png)"></span>
                       </div>
                       <div class="col">
                         <div class="text-truncate">

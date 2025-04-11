@@ -29,9 +29,6 @@ include __DIR__ . '/../config/paths.php';
   <link rel="icon" href="<?php echo path('assets', 'img'); ?>favicon.ico" type="image/x-icon">
   <link rel="shortcut icon" href="<?php echo path('assets', 'img'); ?>favicon.ico" type="image/x-icon">
 
-  <!-- Custom CSS -->
-  <link href="<?php echo path('assets', 'css'); ?>style.css" rel="stylesheet" />
-
   <!-- CSS files - Updated with path() function -->
   <link href="<?php echo path('assets', 'dist'); ?>css/tabler.min.css" rel="stylesheet" />
   <link href="<?php echo path('assets', 'dist'); ?>css/tabler-flags.min.css" rel="stylesheet" />
@@ -39,8 +36,8 @@ include __DIR__ . '/../config/paths.php';
   <link href="<?php echo path('assets', 'dist'); ?>css/tabler-vendors.min.css" rel="stylesheet" />
   <link href="<?php echo path('assets', 'dist'); ?>css/demo.min.css" rel="stylesheet" />
 
-  <!-- For the font -->
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="<?php echo path('assets', 'css'); ?>style.css" rel="stylesheet" />
 </head>
 
 <body>
