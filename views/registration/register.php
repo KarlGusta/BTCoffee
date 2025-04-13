@@ -55,7 +55,11 @@ include __DIR__ . '/../../config/paths.php';
                             <span class="input-group-text">
                                 <strong>https://btcoffee.com/</strong>
                             </span>
-                            <input type="text" class="form-control ps-0 text-muted is-valid is-valid-lite" value="yourname" autocomplete="off">
+                            <input type="text" id="username" name="username" class="form-control ps-0 text-muted is-valid is-valid-lite" placeholder="yourname" autocomplete="off">
+                            <div id="username-feedback" class="invalid-feedback"></div>
+                        </div>
+                        <div class="mt-1">
+                            <span id="username-status"></span>
                         </div>
                     </div>
                     <div class="form-footer">
@@ -69,6 +73,64 @@ include __DIR__ . '/../../config/paths.php';
     <!-- Tabler Core -->
     <script src="<?php echo path('assets', 'dist'); ?>js/tabler.min.js" defer></script>
     <script src="<?php echo path('assets', 'dist'); ?>js/demo.min.js" defer></script>
+
+    <!-- Check if username exists -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const usernameInput = document.getElementById('username');
+            const usernameStatus = document.getElementById('username-status');
+            const usernameFeedback = document.getElementById('username-feedback');
+            let checkUsernameTimeout = null;
+
+            usernameInput.addEventListener('input', function() {
+                // Clear any previous timeout
+                if (checkUsernameTimeout) {
+                    clearTimeout(checkUsernameTimeout);
+                }
+
+                const username = this.value.trim();
+
+                // Reset styling
+                usernameInput.classList.remove('is-valid', 'is-valid');
+                usernameStatus.innerHTML = '';
+
+                // Only check if there's a username entered
+                if (username.length > 0) {
+                    // Show "checking..." status 
+                    usernameStatus.innerHTML = '<small class="text-muted">Checking availability...</small>';
+
+                    // Set a timeout to check username after typing stops
+                    checkUsernameTimeout = setTimeout(() => {
+                        checkUsernameAvailability(username);
+                    }, 500); // 500ms delay
+                }
+            });
+
+            function checkUsernameAvailability(username) {
+                // Make AJAX request to check username
+                fetch('../../handlers/check_username.php?username=' + encodeURIComponent(username))
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.available) {
+                            // Username is available
+                            usernameInput.classList.add('is-valid');
+                            usernameInput.classList.remove('is-invalid');
+                            usernameStatus.innerHTML = '<small class="text-success">Username available! ✓</small>';
+                        } else {
+                            // Username is taken
+                            usernameInput.classList.add('is-invalid');
+                            usernameInput.classList.remove('is-valid');
+                            usernameFeedback.textContent = 'This username is already taken.';
+                            usernameStatus.innerHTML = '<small class="text-danger">Username already taken ✗</small>';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error checking username:', error);
+                        usernameStatus.innerHTML = '<small class="text-danger">Error checking availability</small>';
+                    });
+            }
+        });
+    </script>
 </body>
 
 </html>
