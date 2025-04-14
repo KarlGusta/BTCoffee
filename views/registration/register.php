@@ -55,7 +55,7 @@ include __DIR__ . '/../../config/paths.php';
                             <span class="input-group-text">
                                 <strong>https://btcoffee.com/</strong>
                             </span>
-                            <input type="text" id="username" name="username" class="form-control ps-0 text-muted is-valid is-valid-lite" placeholder="yourname" autocomplete="off">
+                            <input type="text" id="username" name="username" class="form-control ps-0 text-muted is-valid-lite" placeholder="yourname" autocomplete="off">
                             <div id="username-feedback" class="invalid-feedback"></div>
                         </div>
                         <div class="mt-1">
@@ -96,9 +96,6 @@ include __DIR__ . '/../../config/paths.php';
 
                 // Only check if there's a username entered
                 if (username.length > 0) {
-                    // Show "checking..." status 
-                    usernameStatus.innerHTML = '<small class="text-muted">Checking availability...</small>';
-
                     // Set a timeout to check username after typing stops
                     checkUsernameTimeout = setTimeout(() => {
                         checkUsernameAvailability(username);
@@ -115,13 +112,10 @@ include __DIR__ . '/../../config/paths.php';
                             // Username is available
                             usernameInput.classList.add('is-valid');
                             usernameInput.classList.remove('is-invalid');
-                            usernameStatus.innerHTML = '<small class="text-success">Username available! ✓</small>';
                         } else {
                             // Username is taken
                             usernameInput.classList.add('is-invalid');
                             usernameInput.classList.remove('is-valid');
-                            usernameFeedback.textContent = 'This username is already taken.';
-                            usernameStatus.innerHTML = '<small class="text-danger">Username already taken ✗</small>';
                         }
                     })
                     .catch(error => {
