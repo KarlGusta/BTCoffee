@@ -68,12 +68,23 @@ class Creator {
         return false;
     }
 
-    public function usernameExists() {
-        $query = "SELECT id FROM " . $this->table_name . " WHERE username = ? LIMIT 0,1";
+    public function usernameExists($username) {
+        // Query to check if username exists
+        $query = "SELECT id FROM creators WHERE username = ?";
+
+        // Prepare the statement
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $this->username);
+
+        // Sanitize
+        $username = htmlspecialchars(strip_tags($username));
+
+        // Bind the parameter
+        $stmt->bindParam(1, $username);
+
+        // Execute the query
         $stmt->execute();
 
+        // Check if any row was found
         return $stmt->rowCount() > 0;
     }
 
