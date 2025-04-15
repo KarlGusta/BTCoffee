@@ -4,8 +4,10 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 // Include the path config. This is to make it easy to manage my URLs when I upload to production, that is cpanel
-// require_once __DIR__ . '/../config/paths.php';
 include __DIR__ . '/../../config/paths.php';
+
+// Start the session to store username temporarily
+session_start();
 ?>
 
 <!doctype html>
@@ -46,7 +48,7 @@ include __DIR__ . '/../../config/paths.php';
             <div class="text-center mb-4">
                 <a href="." class="navbar-brand navbar-brand-autodark"><img src="./static/logo.svg" height="36" alt=""></a>
             </div>
-            <form class="card card-md card-custom" action="." method="get">
+            <form class="card card-md card-custom" action="../../handlers/register_handler.php" method="post">
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4"><strong>Create your account</strong></h2>
                     <div class="mb-3">
@@ -63,7 +65,7 @@ include __DIR__ . '/../../config/paths.php';
                         </div>
                     </div>
                     <div class="form-footer">
-                        <button type="submit" class="btn btn-primary w-100 btn-custom">Sign Up</button>
+                        <button type="submit" name="continue" class="btn btn-primary w-100 btn-custom">Sign Up</button>
                     </div>
                 </div>
             </form>
@@ -119,8 +121,7 @@ include __DIR__ . '/../../config/paths.php';
                         }
                     })
                     .catch(error => {
-                        console.error('Error checking username:', error);
-                        usernameStatus.innerHTML = '<small class="text-danger">Error checking availability</small>';
+                        console.error('Error checking username:', error);                        
                     });
             }
         });
