@@ -1,3 +1,28 @@
+@font-face {
+    font-family: 'BricolageGrotesque';
+    src: url('./assets/fonts/BricolageGrotesque-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'BricolageGrotesque';
+    src: url('./assets/fonts/BricolageGrotesque-Bold.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'BricolageGrotesque';
+    src: url('./assets/fonts/BricolageGrotesque-Italic.ttf') format('truetype');
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  body {
+    font-family: 'BricolageGrotesque', sans-serif;
+  }
+  
 /* Payment form styles */
 .payment-form {
     margin-bottom: 20px;
@@ -16,9 +41,11 @@
 .form-group input,
 .form-group textarea {
     width: 100%;
-    padding: 8px;
+    padding: 12px;
     border: 1px solid #ddd;
-    border-radius: 4px;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #E7E7E7;
 }
 
 .payment-buttons {
@@ -27,11 +54,12 @@
 }
 
 .btn {
-    padding: 10px 15px;
+    padding: 12px 20px;
     border: none;
-    border-radius: 4px;
+    border-radius: 8px;
     cursor: pointer;
     font-weight: bold;
+    font-size: 16px;
 }
 
 .donate-btn {
@@ -155,4 +183,152 @@
     font-size: 0.9em;
     color: #667;
     margin-top: 5px;
+}
+
+.card-custom {
+    border-radius: 30px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card-header-custom {
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+    background-color: #f8f9fa !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.btn-custom {
+    background-color: #000000 !important;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+    transition: transform 0.2s ease !important;
+    padding: 15px 25px !important;
+    font-size: 18px !important;
+}
+
+/* Coffee selection form enhancements */
+.form-selectgroup {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px !important;
+  margin-bottom: 15px;
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-selectgroup-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin: 0;
+}
+
+.form-selectgroup-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  font-size: 30px !important;
+  font-weight: 600;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  background-color: #f5f5f5;
+  transition: all 0.2s ease;
+}
+
+.form-selectgroup-label-coffee {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    font-size: 36px !important;
+    font-weight: 600;
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    transition: all 0.2s ease;
+  }
+
+  .form-selectgroup-label-x-sign {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    font-size: 20px !important;
+    font-weight: 600;
+    height: 45px;
+    width: 45px;
+    color: #A5A5A5;
+    border-radius: 50%;
+    background-color: #f5f5f5;
+    transition: all 0.2s ease;
+  }
+
+  .form-selectgroup-label-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    font-size: 25px !important;
+    font-weight: 600;
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    transition: all 0.2s ease;
+  }
+
+.form-selectgroup-input:checked + .form-selectgroup-label,
+.form-selectgroup-input:checked + .form-selectgroup-label-input {
+  background-color: #000;
+  color: #fff;
+}
+
+.form-selectgroup-input {
+  position: absolute;
+  opacity: 0;
+}
+
+.form-selectgroup-input-custom {
+  /* Remove arrows for number inputs in all major browsers */
+  -moz-appearance: textfield; /* Firefox */
+  /* Prevent scrolling behavior */
+  pointer-events: none;
+}
+
+/* Make the input field itself accept pointer events for cursor and clicking */
+.form-selectgroup-input-custom:focus {
+  pointer-events: auto;
+}
+
+/* Hide spinner buttons for Webkit browsers (Chrome, Safari, newer Edge) */
+.form-selectgroup-input-custom::-webkit-outer-spin-button,
+.form-selectgroup-input-custom::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+  display: none;
+}
+
+/* For the custom number input at the end */
+.form-selectgroup-item:last-child input[type="number"] {
+  width: 55px;
+  height: 45px;
+  padding: 10px;
+  font-size: 25px !important;
+  font-weight: 600;
+  text-align: center;
+  border: 2px solid #ddd;
+  border-radius: 15px !important;
+  background-color: #ffffff;
+  /* Prevent scrolling behavior completely */
+  overflow: hidden;
 }

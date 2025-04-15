@@ -1,4 +1,7 @@
 <?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
 // Include database, creator class, and paths configuration
 include_once '../../config/database.php';
 include_once '../../classes/Creator.php';
@@ -17,180 +20,305 @@ $creator->username = $username;
 
 // Try to fetch creator details
 if ($creator->readOne()) {
-    $creator_id = $creator->id;
-    $creator_username = $creator->username;
-    $creator_email = $creator->email;
-    $creator_profile_link = $creator->profile_link;
+  $creator_id = $creator->id;
+  $creator_username = $creator->username;
+  $creator_email = $creator->email;
+  $creator_profile_link = $creator->profile_link;
 } else {
-    // Creator not found
-    header("Location: " . path('home'));
-    exit();
+  // Creator not found
+  header("Location: " . path('home'));
+  exit();
 }
+
+// Only include header files after all potential redirects
+include '../../includes/header.php';
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $creator_username; ?>'s Profile</title>
-    <link rel="stylesheet" href="<?php echo path('assets', 'css'); ?>/style.css">
-</head>
-
-<body>
-    <div class="container">
-        <header>
-            <nav>
-                <a href="<?php echo path('home'); ?>">Home</a>
-            </nav>
-        </header>
-        <main>
-            <div class="profile-header">
-                <h1><?php echo htmlspecialchars($creator_username); ?>'s Creator Profile</h1>
-                <p class="join-date">Member since: <?php echo date('F j, Y', strtotime($creator->created_at)); ?></p>
-            </div>
-
-            <div class="profile-content">
-                <div class="profile-section">
-                    <h2>About</h2>
-                    <p>Profile Link: <a href="<?php echo htmlspecialchars($creator_profile_link); ?>"><?php echo htmlspecialchars($creator_profile_link); ?></a></p>
-                    <!-- You could add a bio field to your creators table -->
-                </div>
-
-                <div class="profile-section">
-                    <h2>Support <?php echo htmlspecialchars($creator_username); ?></h2>
-                    
-                     <div class="donation-options">
-                        <form action="<?php echo path('handlers'); ?>/payment_handler.php" method="post" class="payment-form">
-                            <input type="hidden" name="creator_id" value="<?php echo $creator_id; ?>">
-                            <input type="hidden" name="creator_username" value="<?php echo htmlspecialchars($creator_username); ?>">
-
-                            <div class="form-group">
-                                <label for="amount">Amount:</label>
-                                <div class="amount-input-group">
-                                    <input type="number" id="amount" name="amount" min="1000" step="1000" value="10000" required>
-                                    <select id="currency" name="currency">
-                                        <option value="sats">sats</option>
-                                        <option value="usd">USD</option>
-                                        <option value="eur">EUR</option>
-                                    </select>
-                                </div>
-                                <p id="conversion-display">≈ $0.00 USD</p>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="message">Message (optional):</label>
-                                <textarea name="message" id="message" rows="2" maxlength="200"></textarea>
-                            </div>
-
-                            <div class="payment-buttons">
-                                <button type="submit" class="btn donate-btn">Send Bitcoin Tip</button>
-                                <button type="button" class="btn qr-btn" id="showQR">Show QR Code</button>
-                            </div>
-                        </form>
-
-                        <div id="bitcoin-qr" class="bitcoin-qr" style="display: none;">
-                            <h3>Scan to Pay</h3>
-                            <div class="qr-container">
-                                <?php
-                                // Use a default address if the creator hasn't set one
-                                $bitcoin_address = !empty($creator->bitcoin_address) ? $creator->bitcoin_address : "bc1q...address";
-                                ?>
-                                <!-- QR code will be inserted here via JavaScript -->
-                                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:<?php echo htmlspecialchars($bitcoin_address); ?>?amount=0.0001" alt="Bitcoin QR Code"> 
-                            </div>
-                            <p class="bitcoin-address"><?php echo htmlspecialchars($bitcoin_address); ?></p>
-                            <p class="payment-note">Scan with any Bitcoin wallet to send a tip</p>
-                        </div>
-                     </div>
-                </div>
-            </div>
-        </main>
-
-        <footer>
-            <p>&copy; <?php echo date('Y'); ?> BTCoffee - The easiest way to receive Bitcoin tips</p>
-        </footer>
+<div class="page-wrapper">
+  <div class="container-xl">
+    <!-- Page title -->
+    <div class="page-header d-print-none">
+      <div class="row g-2 align-items-center">
+        <!-- Empty for spacing purposes -->
+      </div>
     </div>
+  </div>
+  <div class="page-body">
+    <div class="container-xl">
+      <div class="row row-cards">
+        <div class="col-lg-6">
+          <div class="card card-custom">
+            <div class="card-body">
+              <div class="col">
+                <h2 class="h3">About <?php echo htmlspecialchars($creator_username); ?></h2>
+                <p class="mb-2 text-muted">I create a variety of content but mainly thrifting videos.</p>
+                <a href="#" class="d-block"><img src="<?php echo path('assets', 'img'); ?>karl_image.png" class="card-img-top" style="max-height: 320px; object-fit: cover;"></a>
+                <p class="mt-2 text-muted">I am an avid thrifter & reseller on Youtube Ebay & Mercari. I offer a variety of content including Thrift Hauls, Shop Along's, Diy's, Crafts, Cooking & Baking. </p>
+                <hr>
+                <h2 class="h3">Recent supporters</h2>
+                <div class="divide-y">
+                  <div>
+                    <div class="row">
+                      <div class="col-auto">
+                        <span class="avatar">JL</span>
+                      </div>
+                      <div class="col">
+                        <div class="text-truncate">
+                          <strong>Someone </strong>bought 5 coffees.
+                        </div>
+                        <div class="text-muted">Thanks so much!</div>
+                      </div>
+                      <div class="col-auto align-self-center">
+                        <div class="dropdown">
+                          <a href="#" class="btn-action dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dots">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            </svg>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">Share</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="row">
+                      <div class="col-auto">
+                        <span class="avatar" style="background-image: url(./static/avatars/002m.jpg)"></span>
+                      </div>
+                      <div class="col">
+                        <div class="text-truncate">
+                          <strong>Someone </strong>bought 5 coffees.
+                        </div>
+                      </div>
+                      <div class="col-auto align-self-center">
+                        <div class="dropdown">
+                          <a href="#" class="btn-action dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dots">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            </svg>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">Share</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="row">
+                      <div class="col-auto">
+                        <span class="avatar" style="background-image: url(./static/avatars/003m.jpg)"></span>
+                      </div>
+                      <div class="col">
+                        <div class="text-truncate">
+                          <strong>Someone </strong>bought 5 coffees.
+                        </div>
+                      </div>
+                      <div class="col-auto align-self-center">
+                        <div class="dropdown">
+                          <a href="#" class="btn-action dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dots">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            </svg>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">Share</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="row">
+                      <div class="col-auto">
+                        <span class="avatar" style="background-image: url(../../assets/img/coffee1.png)"></span>
+                      </div>
+                      <div class="col">
+                        <div class="text-truncate">
+                          <strong>Someone </strong>bought 5 coffees.
+                        </div>
+                        <div class="text-muted">Thanks so much!</div>
+                      </div>
+                      <div class="col-auto align-self-center">
+                        <div class="dropdown">
+                          <a href="#" class="btn-action dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dots">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            </svg>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">Share</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="row">
+                      <div class="col-auto">
+                        <span class="avatar">AA</span>
+                      </div>
+                      <div class="col">
+                        <div class="text-truncate">
+                          <strong>Someone </strong>bought 5 coffees.
+                        </div>
+                        <div class="text-muted">Thanks so much!</div>
+                      </div>
+                      <div class="col-auto align-self-center">
+                        <div class="dropdown">
+                          <a href="#" class="btn-action dropdown-toggle fw-bold" data-bs-toggle="dropdown" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-dots">
+                              <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                              <path d="M5 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M12 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                              <path d="M19 12m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                            </svg>
+                          </a>
+                          <div class="dropdown-menu dropdown-menu-end">
+                            <a class="dropdown-item" href="#">Share</a>
+                          </div>
+                        </div>
+                      </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="card card-custom">
+            <div class="card-header">
+              <h3 class="card-title">Buy <?php echo htmlspecialchars($creator_username); ?> a coffee</h3>
+            </div>
+            <div class="card-body">
+              <form action="<?php echo path('handlers'); ?>/payment_handler.php" method="post" class="payment-form">
+                <input type="hidden" name="creator_id" value="<?php echo $creator_id; ?>">
+                <input type="hidden" name="creator_username" value="<?php echo htmlspecialchars($creator_username); ?>">
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const showQRButton = document.getElementById('showQR');
-            const bitcoinQR = document.getElementById('bitcoin-qr');
+                <div class="form-group mb-3">
+                  <div class="form-selectgroup">
+                    <label class="form-selectgroup-item">
+                      <span class="form-selectgroup-label-coffee">☕</span>
+                    </label>
+                    <label class="form-selectgroup-item">
+                      <span class="form-selectgroup-label-x-sign">X</span>
+                    </label>
+                    <label class="form-selectgroup-item">
+                      <input type="radio" name="coffee_count" value="1" class="form-selectgroup-input" checked>
+                      <span class="form-selectgroup-label-input">1</span>
+                    </label>
+                    <label class="form-selectgroup-item">
+                      <input type="radio" name="coffee_count" value="2" class="form-selectgroup-input">
+                      <span class="form-selectgroup-label-input">2</span>
+                    </label>
+                    <label class="form-selectgroup-item">
+                      <input type="radio" name="coffee_count" value="3" class="form-selectgroup-input">
+                      <span class="form-selectgroup-label-input">3</span>
+                    </label>
+                    <label class="form-selectgroup-item">
+                      <input type="number" id="custom_count" name="custom_count" class="form-selectgroup-input-custom" min="1" placeholder="10">
+                    </label>
+                  </div>
+                  <input type="hidden" name="amount" id="amount" value="1000">
+                </div>
 
-            showQRButton.addEventListener('click', function() {
-                if (bitcoinQR.style.display === 'none') {
-                    bitcoinQR.style.display = 'block';
-                    showQRButton.textContent = 'Hide QR Code';
-                } else {
-                    bitcoinQR.style.display = 'none';
-                    showQRButton.textContent = 'Show QR Code';
-                }
-            });
+                <div class="form-group mb-3">
+                  <input type="text" class="form-control" placeholder="Name or @yoursocial">
+                </div>
 
-            // Update QR code when amount changes
-            const amountInput = document.getElementById('amount');
-            amountInput.addEventListener('change', function() {
-                const amount = parseFloat(amountInput.value) / 100000000; // Convert sats to BTC
-                const qrImage = document.querySelector('.qr-container img');
-                const bitcoinAddress = document.querySelector('.bitcoin-address').textContent;
-                qrImage.src = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=bitcoin:${bitcoinAddress}?amount=${amount}`;
-            });
-
-            // Currency conversion
-            const currencySelect = document.getElementById('currency');
-            const conversionDisplay = document.getElementById('conversion-display');
-
-            // Bitcoin price in USD (you would fetch this from an API)
-            let btcPriceUSD = 50000; // Example price
-
-            // Fetch current Bitcoin price
-            fetch('https://api.coingecko.com/api/v3/simple/price?ids=bitcoin&vs_currencies=usd,eur')
-                 .then(response => response.json())
-                 .then(data => {
-                    btcPriceUSD = data.bitcoin.usd;
-                    updateConversionDisplay();
-                 }) 
-                 .catch(error => console.error('Error fetching Bitcoin price:', error));
-
-            function updateConversionDisplay() {
-                const amount = parseFloat(amountInput.value);
-                const currency = currencySelect.value;
-
-                if (currency === 'sats') {
-                    // Convert sats to USD
-                    const amountUSD = (amount / 100000000) * btcPriceUSD;
-                    conversionDisplay.textContent = `≈ $${amountUSD.toFixed(2)} USD`;
-                } else if (currency === 'usd') {
-                    // Convert USD to sats
-                    const amountSats = (amount / btcPriceUSD) * 100000000;
-                    conversionDisplay.textContent = `≈ ${Math.round(amountSats)} sats`;
-                } else if (currency === 'eur') {
-                    // Convert EUR to sats (assuming we have EUR price from API)
-                    const amountSats = (amount / btcPriceUSD * 0.85) * 100000000; // Rough EUR conversion
-                    conversionDisplay.textContent = `≈ ${Math.round(amountSats)} sats`;  
-                }
-            }     
-
-            amountInput.addEventListener('input', updateConversionDisplay);
-            currencySelect.addEventListener('change', function() {
-                if (currencySelect.value === 'usd') {
-                    amountInput.value = 5; // Default USD amount
-                    amountInput.min = 1;
-                    amountInput.step = 1;
-                } else if (currencySelect.value === 'eur') {
-                    amountInput.value = 5; // Default EUR amount
-                    amountInput.min = 1;
-                    amountInput.step = 1;
-                } else {
-                    amountInput.value = 10000; // Default sats amount
-                    amountInput.min = 1000;
-                    amountInput.step = 1000; 
-                }
-                updateConversionDisplay();
-            });            
+                <div class="form-group mb-3">
+                  <textarea name="message" id="message" rows="5" maxlength="200" placeholder="Say something nice..."></textarea>
+                </div>
+                <div class="form-footer">
+                  <button type="submit" id="support-button" class="btn btn-primary w-100 form-control-rounded btn-custom">Support with 1,000 sats</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Base amount per coffee in sats
+      const baseCoffeeAmount = 1000;
+      
+      // Get all coffee count radio buttons
+      const coffeeRadios = document.querySelectorAll('input[name="coffee_count"]');
+      const customCountInput = document.getElementById('custom_count');
+      const amountInput = document.getElementById('amount');
+      const supportButton = document.getElementById('support-button');
+      
+      // Function to update amount and button text
+      function updateAmount() {
+        let coffeeCount = 1; // Default to 1
+        
+        // Check if any radio is selected
+        const selectedRadio = document.querySelector('input[name="coffee_count"]:checked');
+        if (selectedRadio) {
+          coffeeCount = parseInt(selectedRadio.value);
+          // Update custom input placeholder to match selected value
+          customCountInput.placeholder = coffeeCount;
+        } else if (customCountInput.value) {
+          // Use custom count if no radio selected and custom has a value
+          coffeeCount = parseInt(customCountInput.value);
+        }
+        
+        // Calculate total amount
+        const totalAmount = baseCoffeeAmount * coffeeCount;
+        
+        // Update hidden amount input
+        amountInput.value = totalAmount;
+        
+        // Update button text
+        supportButton.textContent = `Support with ${totalAmount.toLocaleString()} sats`;
+      }
+      
+      // Add event listeners to all inputs
+      coffeeRadios.forEach(radio => {
+        radio.addEventListener('change', function() {
+          // When a radio is selected, clear the custom input
+          customCountInput.value = '';
+          updateAmount();
         });
-    </script>
-</body>
+      });
+      
+      customCountInput.addEventListener('input', function() {
+        // When custom input changes, uncheck any selected radio
+        coffeeRadios.forEach(radio => {
+          radio.checked = false;
+        });
+        updateAmount();
+      });
+      
+      // Don't update automatically on page load - only when user interacts with inputs
+      // Initial amount should match the checked radio button (which defaults to 1)
+      const initialSelectedRadio = document.querySelector('input[name="coffee_count"]:checked');
+      if (initialSelectedRadio) {
+        const initialAmount = baseCoffeeAmount * parseInt(initialSelectedRadio.value);
+        amountInput.value = initialAmount;
+        supportButton.textContent = `Support with ${initialAmount.toLocaleString()} sats`;
+      }
+    });
+  </script>
+</div>
 
-</html>
+<?php include '../../includes/footer.php'; ?>

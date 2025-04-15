@@ -17,7 +17,7 @@ class Creator {
 
     public function create() {
         // Generate unique profile link
-        $this->profile_link = "http://localhost/BTCoffee/creator/" . $this->username;
+        $this->profile_link = "http://localhost/BTCoffee/" . $this->username;
 
         // Hash the password
         $password_hash = password_hash($this->password, PASSWORD_BCRYPT);
@@ -68,12 +68,23 @@ class Creator {
         return false;
     }
 
-    public function usernameExists() {
-        $query = "SELECT id FROM " . $this->table_name . " WHERE username = ? LIMIT 0,1";
+    public function usernameExists($username) {
+        // Query to check if username exists
+        $query = "SELECT id FROM creators WHERE username = ?";
+
+        // Prepare the statement
         $stmt = $this->conn->prepare($query);
-        $stmt->bindParam(1, $this->username);
+
+        // Sanitize
+        $username = htmlspecialchars(strip_tags($username));
+
+        // Bind the parameter
+        $stmt->bindParam(1, $username);
+
+        // Execute the query
         $stmt->execute();
 
+        // Check if any row was found
         return $stmt->rowCount() > 0;
     }
 
