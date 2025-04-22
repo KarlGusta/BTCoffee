@@ -9,6 +9,12 @@ include __DIR__ . '/../../config/paths.php';
 // Start or resume the session
 session_start();
 
+// Check if form was submitted with a username
+if (isset($_POST['username']) && !empty($_POST['username'])) {
+    // Store the username in session
+    $_SESSION['temp_username'] = trim($_POST['username']);
+}
+
 // Check if username is set in session
 if (!isset($_SESSION['temp_username'])) {
     // Redirect to the first step if username is not set

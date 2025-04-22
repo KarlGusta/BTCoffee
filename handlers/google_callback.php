@@ -18,9 +18,9 @@ require_once '../vendor/autoload.php';
 
 // Create client object
 $client = new Google_Client();
-$client->setClientId('YOUR_CLIENT_ID');
-$client->setClientSecret('YOUR_CLIENT_SECRET');
-$client->setRedirectUri('https://yourapp.com/handlers/google_callback.php');
+$client->setClientId('151493845572-7e971c4b695a9r4f88gluj0fqft69j2q.apps.googleusercontent.com');
+$client->setClientSecret('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');
+$client->setRedirectUri('http://localhost/BTCoffee/handlers/google_callback.php');
 
 // Process the code from Google
 if (isset($_GET['code'])) {
