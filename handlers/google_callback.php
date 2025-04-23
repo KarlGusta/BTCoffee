@@ -63,7 +63,7 @@ if (isset($_GET['code'])) {
         $_SESSION['success_message'] = "Registration successful!";
         
         // Redirect to dashboard or profile page
-        header("Location: ../views.dashboard/index.php");
+        header("Location: ../views/dashboard/index.php");
         exit(); 
     } else {
         $_SESSION['error_message'] = "Unable to register. Please try again.";

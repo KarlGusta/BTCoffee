@@ -104,9 +104,13 @@ class Creator {
         // Hash the password
         $password_hash = password_hash($this->password, PASSWORD_DEFAULT);
 
-        // Insert query with OAuth fields
-        $query = "INSERT INTO creators (username, email, password, oauth_provider, oauth_uid, created_at)
-                  VALUES (:username, :email, :password, : oauth_provider, :ouath_uid, NOW())";
+        // Generate unique profile link
+        $this->profile_link = "http://localhost/BTCoffee/" . $this->username;
+
+        // Insert query with OAuth fields - using password_hash column instead of password
+        $query = "INSERT INTO " . $this->table_name . " 
+                  (username, email, password_hash, oauth_provider, oauth_uid, profile_link, created_at)
+                  VALUES (:username, :email, :password_hash, :oauth_provider, :oauth_uid, :profile_link, NOW())";
 
         // Prepare the statement
         $stmt = $this->conn->prepare($query);
@@ -114,22 +118,20 @@ class Creator {
         // Sanitize inputs
         $this->username = htmlspecialchars(strip_tags($this->username));
         $this->email = htmlspecialchars(strip_tags($this->email));
+        $this->profile_link = htmlspecialchars(strip_tags($this->profile_link));
         
         // Bind parameters
         $stmt->bindParam(':username', $this->username);
         $stmt->bindParam(':email', $this->email);
-        $stmt->bindParam(':password', $password_hash);
+        $stmt->bindParam(':password_hash', $password_hash);
         $stmt->bindParam(':oauth_provider', $this->oauth_provider);
         $stmt->bindParam(':oauth_uid', $this->oauth_uid);
+        $stmt->bindParam(':profile_link', $this->profile_link);
 
         // Execute the query
         if ($stmt->execute()) {
             // Get the ID of the newly created user
             $this->id = $this->conn->lastInsertId();
-
-            // Set the profile link
-            $this->profile_link = "https://btcoffee.com/" . $this->username;
-
             return true;
         }
 
