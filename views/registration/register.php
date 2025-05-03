@@ -48,7 +48,7 @@ session_start();
             <div class="text-center mb-4">
                 <a href="." class="navbar-brand navbar-brand-autodark"><img src="./static/logo.svg" height="36" alt=""></a>
             </div>
-            <form class="card card-md card-custom" action="../../handlers/register_handler.php" method="post">
+            <form class="card card-md card-custom" action="signup_options.php" method="post">
                 <div class="card-body">
                     <h2 class="card-title text-center mb-4"><strong>Create your account</strong></h2>
                     <div class="mb-3">

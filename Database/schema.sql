@@ -5,6 +5,12 @@ CREATE TABLE creators (
     password_hash VARCHAR(255) NOT NULL,
     profile_link VARCHAR(100) UNIQUE NOT NULL,
     bitcoin_address VARCHAR(100),
+    oauth_provider VARCHAR(50) NULL,
+    oauth_uid VARCHAR(255) NULL,
+    bio TEXT,
+    name VARCHAR(255),
+    profile_image VARCHAR(255),
+    coffee_price INT DEFAULT 1000,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP  
 );
