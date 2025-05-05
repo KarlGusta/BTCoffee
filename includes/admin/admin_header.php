@@ -34,14 +34,14 @@ include __DIR__ . '/../../config/paths.php';
 
 <body>
     <div class="page">
-        <aside class="navbar navbar-vertical navbar-expand-lg navbar-transparent">
+        <aside class="navbar navbar-vertical navbar-expand-lg navbar-light">
             <div class="container-fluid">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-menu">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <h1 class="navbar-brand navbar-brand-autodark">
                     <a href=".">
-                        <img src="<?php echo path('assets', 'img'); ?>coffee_transparent.png" width="110" height="32" alt="BTCoffee" class="navbar-brand-image">
+                        <img src="<?php echo path('assets', 'img'); ?>coffee_transparent.png" width="110" height="32" alt="BTCoffee" class="navbar-brand-image-custom">
                     </a>
                 </h1>
                 <div class="collapse navbar-collapse" id="navbar-menu">
@@ -67,13 +67,22 @@ include __DIR__ . '/../../config/paths.php';
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <!-- Eye/View icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <circle cx="12" cy="12" r="2" />
                                         <path d="M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7" />
                                     </svg>
                                 </span>
                                 <span class="nav-link-title">
                                     View page
+                                </span>
+                                <span class="nav-link-icon d-md-none d-lg-inline-block ml-5">
+                                    <!-- Alternative share icon -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
+                                        <path d="M10 14l10 -10" />
+                                        <path d="M15 4h5v5" />
+                                    </svg>
                                 </span>
                             </a>
                         </li>
@@ -82,7 +91,7 @@ include __DIR__ . '/../../config/paths.php';
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <!-- Users/Explore icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <circle cx="12" cy="7" r="4" />
                                         <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
                                     </svg>
@@ -97,7 +106,7 @@ include __DIR__ . '/../../config/paths.php';
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <!-- Heart/Supporters icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M19.5 13.572l-7.5 7.428l-7.5 -7.428m0 0a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
                                     </svg>
                                 </span>
@@ -111,7 +120,7 @@ include __DIR__ . '/../../config/paths.php';
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <!-- ID/Membership icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <rect x="3" y="4" width="18" height="16" rx="3" />
                                         <circle cx="9" cy="10" r="2" />
                                         <line x1="15" y1="8" x2="17" y2="8" />
@@ -129,7 +138,7 @@ include __DIR__ . '/../../config/paths.php';
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <!-- Shopping cart icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <circle cx="6" cy="19" r="2" />
                                         <circle cx="17" cy="19" r="2" />
                                         <path d="M17 17h-11v-14h-2" />
@@ -146,7 +155,7 @@ include __DIR__ . '/../../config/paths.php';
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <!-- Edit/Publish icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M14 3v4a1 1 0 0 0 1 1h4" />
                                         <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
                                         <line x1="9" y1="9" x2="10" y2="9" />
@@ -179,7 +188,7 @@ include __DIR__ . '/../../config/paths.php';
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <!-- Palette/Graphics icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M12 21a9 9 0 1 1 0 -18a9 8 0 0 1 9 8a4.5 4 0 0 1 -4.5 4h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" />
                                         <circle cx="7.5" cy="10.5" r=".5" fill="currentColor" />
                                         <circle cx="12" cy="7.5" r=".5" fill="currentColor" />
@@ -196,7 +205,7 @@ include __DIR__ . '/../../config/paths.php';
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <!-- Plug/Integrations icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M7 12l5 5l-1.5 1.5a3.536 3.536 0 1 1 -5 -5l1.5 -1.5z" />
                                         <path d="M17 12l-5 -5l1.5 -1.5a3.536 3.536 0 1 1 5 5l-1.5 1.5z" />
                                     </svg>
@@ -211,7 +220,7 @@ include __DIR__ . '/../../config/paths.php';
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <!-- Money/Cash icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <rect x="3" y="5" width="18" height="14" rx="3" />
                                         <circle cx="12" cy="12" r="3" />
                                         <path d="M3 10h18m-9 -3v11" />
@@ -227,7 +236,7 @@ include __DIR__ . '/../../config/paths.php';
                                 <span class="nav-link-icon d-md-none d-lg-inline-block">
                                     <!-- Settings/Gear icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                         <path d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
                                         <circle cx="12" cy="12" r="3" />
                                     </svg>
@@ -264,7 +273,7 @@ include __DIR__ . '/../../config/paths.php';
                                 </a>
                             </div>
                         </div>
-                        
+
                     </div>
                 </div>
             </div>

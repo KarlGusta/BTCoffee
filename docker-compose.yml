@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # PHP Application
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: btcoffee_app
+    restart: unless-stopped
+    volumes:
+      - ./:/var/www/html
+      - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
+    networks:
+      - btcoffee-network
+    depends_on:
+      - db
+    ports:
+      - "8080:80"
+
+  # MySQL Database
+  db:
+    image: mysql:8.0
+    container_name: btcoffee_db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: btcoffee
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_PASSWORD: db_password
+      MYSQL_USER: btcoffee_user
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    volumes:
+      - dbdata:/var/lib/mysql
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/init:/docker-entrypoint-initdb.d
+    networks:
+      - btcoffee-network
+    ports:
+      - "3306:3306"
+
+# Docker Networks
+networks:
+  btcoffee-network:
+    driver: bridge
+
+# Docker Volumes
+volumes:
+  dbdata:
+    driver: local 

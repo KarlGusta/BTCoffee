@@ -21,6 +21,7 @@
   
   body {
     font-family: 'BricolageGrotesque', sans-serif;
+    font-size: 16px; /* Increased base font size from default */
   }
   
 /* Payment form styles */
@@ -331,4 +332,10 @@
   background-color: #ffffff;
   /* Prevent scrolling behavior completely */
   overflow: hidden;
+}
+
+.navbar-brand-image-custom {
+  display: block;
+  height: 4rem !important;
+  width: auto;
 }
