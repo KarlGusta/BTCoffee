@@ -75,7 +75,7 @@ include __DIR__ . '/../../config/paths.php';
                                 <span class="nav-link-title">
                                     View page
                                 </span>
-                                <span class="nav-link-icon d-md-none d-lg-inline-block ml-5">
+                                <span class="nav-link-icon d-md-none d-lg-inline-block ms-auto">
                                     <!-- Alternative share icon -->
                                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -257,23 +257,21 @@ include __DIR__ . '/../../config/paths.php';
                     <div class="row g-2 align-items-center">
                         <!-- Page title actions -->
                         <div class="col-12 col-md-auto ms-auto d-print-none">
-                            <div class="btn-list">
-                                <span class="d-none d-sm-inline">
-                                    <a href="#" class="btn btn-white">
-                                        New view
-                                    </a>
-                                </span>
-                                <a href="#" class="btn btn-primary d-sm-none btn-icon" data-bs-toggle="modal" data-bs-target="#modal-report" aria-label="Create new report">
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/plus -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <line x1="12" y1="5" x2="12" y2="19" />
-                                        <line x1="5" y1="12" x2="19" y2="12" />
-                                    </svg>
+                            <div class="nav-item dropdown">
+                                <a href="#" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" aria-label="Open user menu">
+                                <svg  xmlns="http://www.w3.org/2000/svg"  width="24"  height="24"  viewBox="0 0 24 24"  fill="none"  stroke="currentColor"  stroke-width="2"  stroke-linecap="round"  stroke-linejoin="round"  class="icon icon-tabler icons-tabler-outline icon-tabler-menu-2"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 6l16 0" /><path d="M4 12l16 0" /><path d="M4 18l16 0" /></svg>
+                                    <span class="avatar avatar-sm" style="background-image: url(../../assets/img/karl_image.png)"></span>
                                 </a>
+                                <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
+                                    <a href="#" class="dropdown-item">Set status</a>
+                                    <a href="#" class="dropdown-item">Profile & account</a>
+                                    <a href="#" class="dropdown-item">Feedback</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a href="#" class="dropdown-item">Settings</a>
+                                    <a href="#" class="dropdown-item">Logout</a>
+                                </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
             </div>

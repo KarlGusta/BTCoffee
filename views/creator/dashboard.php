@@ -16,18 +16,21 @@ include '../../includes/admin/admin_header.php';
                 <div class="card">
                     <div class="card-header">
                         <div>
-                            <h3 class="card-title">
-                                Hi, Karlgusta
-                            </h3>
-                            <p class="card-subtitle">
-                                btcoffee.com/Karl
-                            </p>
+                            <div class="row align-items-center">
+                                <div class="col-auto">
+                                    <span class="avatar" style="background-image: url(../../assets/img/karl_image.png)"></span>
+                                </div>
+                                <div class="col">
+                                    <div class="card-title">Hi, Karlgusta</div>
+                                    <div class="card-subtitle">btcoffee.com/Karl</div>
+                                </div>
+                            </div>
                         </div>
                         <div class="card-actions">
-                            <a href="#" class="btn btn-primary">
+                            <a href="#" class="btn btn-primary btn-custom">
                                 <!-- Alternative share icon -->
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                     <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
                                     <path d="M10 14l10 -10" />
                                     <path d="M15 4h5v5" />
@@ -42,6 +45,19 @@ include '../../includes/admin/admin_header.php';
                             <line x1="0" y1="0" x2="400" y2="200"></line>
                             <line x1="0" y1="200" x2="400" y2="0"></line>
                         </svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8 mx-auto">
+                <div class="card">
+                    <div class="card-body text-center py-4 p-sm-5">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M19.5 12.572l-7.5 7.428l-7.5 -7.428a5 5 0 1 1 7.5 -6.566a5 5 0 1 1 7.5 6.572" />
+                        </svg>
+                        <h1 class="mt-1">You don't have any supporters yet</h1>
+                        <p class="text-muted">Share your page with your audience to get started.</p>
                     </div>
                 </div>
             </div>
