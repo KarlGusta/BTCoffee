@@ -61,6 +61,57 @@ include '../../includes/admin/admin_header.php';
                     </div>
                 </div>
             </div>
+
+            <div class="col-8 mx-auto">
+                <!-- Page title -->
+                <div class="page-header d-print-none">
+                    <div class="row g-2 align-items-center">
+                        <div class="col">
+                            <h2 class="page-title">
+                                More ways to earn
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row row-cards row-deck">
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title"><strong>Membership</strong></h3>
+                                <p class="text-muted">Monthly membership for your biggest fans and supporters.</p>
+                            </div>
+                            <!-- Card footer -->
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">View</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title"><strong>Shop</strong></h3>
+                                <p class="text-muted">Introducing Shop, the creative way to sell.</p>
+                            </div>
+                            <!-- Card footer -->
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Enable</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="card">
+                            <div class="card-body">
+                                <h3 class="card-title"><strong>Exclusive posts</strong></h3>
+                                <p class="text-muted">Publish your best content exclusively for your supporters and members.</p>
+                            </div>
+                            <!-- Card footer -->
+                            <div class="card-footer">
+                                <a href="#" class="btn btn-primary">Write a post</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
