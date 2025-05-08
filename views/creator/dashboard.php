@@ -18,7 +18,7 @@ include '../../includes/admin/admin_header.php';
                         <div>
                             <div class="row align-items-center">
                                 <div class="col-auto">
-                                    <span class="avatar" style="background-image: url(../../assets/img/karl_image.png)"></span>
+                                    <span class="avatar avatar-rounded avatar-md" style="background-image: url(../../assets/img/karl_image.png)"></span>
                                 </div>
                                 <div class="col">
                                     <div class="card-title">Hi, Karlgusta</div>
@@ -40,11 +40,34 @@ include '../../includes/admin/admin_header.php';
                         </div>
                     </div>
                     <div class="card-body p-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-100" preserveAspectRatio="none" width="400" height="200" viewBox="0 0 400 200" stroke="var(--tblr-border-color, #b8cef1)">
-                            <!--	<rect x=".5" y=".5" width="399" height="199" fill="#fff" rx="2"></rect>-->
-                            <line x1="0" y1="0" x2="400" y2="200"></line>
-                            <line x1="0" y1="200" x2="400" y2="0"></line>
-                        </svg>
+                        <div class="d-flex align-items-center">
+                            <div class="h2 p-3">Earnings</div>
+                            <div class="ms-auto lh-1 p-3">
+                                <div class="dropdown">
+                                    <a class="dropdown-toggle text-muted" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Last 30 days</a>
+                                    <div class="dropdown-menu dropdown-menu-end">
+                                        <a class="dropdown-item active" href="#">Last 30 days</a>
+                                        <a class="dropdown-item" href="#">Last 90 days</a>
+                                        <a class="dropdown-item" href="#">All time</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="h1 mb-3 p-3">$0</div>
+                        <div class="row p-3">
+                            <div class="col-auto d-flex align-items-center pe-2">
+                                <span class="legend me-2 bg-yellow"></span>
+                                <span>$0 Supporters</span>
+                            </div>
+                            <div class="col-auto d-flex align-items-center px-2">
+                                <span class="legend me-2 bg-rose"></span>
+                                <span>$0 Membership</span>
+                            </div>
+                            <div class="col-auto d-flex align-items-center px-2">
+                                <span class="legend me-2 bg-cyan"></span>
+                                <span>$0 Shop</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -83,15 +106,15 @@ include '../../includes/admin/admin_header.php';
                             <!-- Card footer -->
                             <div class="card-footer">
                                 <a href="#" class="btn btn-github w-100">
-                                View
-                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-github -->
-                                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                    <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
-                                    <path d="M10 14l10 -10" />
-                                    <path d="M15 4h5v5" />
-                                </svg>
-                            </a>
+                                    View
+                                    <!-- Download SVG icon from http://tabler-icons.io/i/brand-github -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
+                                        <path d="M10 14l10 -10" />
+                                        <path d="M15 4h5v5" />
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>

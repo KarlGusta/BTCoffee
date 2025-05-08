@@ -339,3 +339,8 @@
   height: 4rem !important;
   width: auto;
 }
+
+.white-background {
+  background-color: #ffffff !important;
+  padding: 20px; /* optional: to add space inside */
+}
