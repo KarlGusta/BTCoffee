@@ -1,0 +1,12 @@
+.git
+.gitignore
+vendor
+node_modules
+mysql
+.env
+*.log
+README.md
+LICENSE
+docker-compose.yml
+Dockerfile
+.dockerignore 

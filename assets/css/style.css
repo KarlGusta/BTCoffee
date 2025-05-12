@@ -1,26 +1,27 @@
 @font-face {
     font-family: 'BricolageGrotesque';
-    src: url('./assets/fonts/BricolageGrotesque-Regular.ttf') format('truetype');
+    src: url('../fonts/BricolageGrotesque-Regular.ttf') format('truetype');
     font-weight: 400;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'BricolageGrotesque';
-    src: url('./assets/fonts/BricolageGrotesque-Bold.ttf') format('truetype');
+    src: url('../fonts/BricolageGrotesque-Bold.ttf') format('truetype');
     font-weight: 700;
     font-style: normal;
   }
   
   @font-face {
     font-family: 'BricolageGrotesque';
-    src: url('./assets/fonts/BricolageGrotesque-Italic.ttf') format('truetype');
+    src: url('../fonts/BricolageGrotesque-Italic.ttf') format('truetype');
     font-weight: 400;
     font-style: italic;
   }
   
   body {
     font-family: 'BricolageGrotesque', sans-serif;
+    font-size: 16px; /* Increased base font size from default */
   }
   
 /* Payment form styles */
@@ -331,4 +332,20 @@
   background-color: #ffffff;
   /* Prevent scrolling behavior completely */
   overflow: hidden;
+}
+
+.navbar-brand-image-custom {
+  display: block;
+  height: 4rem !important;
+  width: auto;
+}
+
+.white-background {
+  background-color: #ffffff !important;
+  padding: 10px; /* optional: to add space inside */
+  border-radius: 25%;
+}
+
+.icon-custom {
+  font-size: 25px !important;
 }
