@@ -265,7 +265,7 @@ include __DIR__ . '/../../config/paths.php';
                                             <path d="M4 6l16 0" />
                                             <path d="M4 12l16 0" />
                                             <path d="M4 18l16 0" />
-                                        </svg>
+                                        </svg>&nbsp;&nbsp;  
                                         <span class="avatar avatar-sm" style="background-image: url(../../assets/img/karl_image.png)"></span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">

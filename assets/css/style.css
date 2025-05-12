@@ -342,5 +342,10 @@
 
 .white-background {
   background-color: #ffffff !important;
-  padding: 20px; /* optional: to add space inside */
+  padding: 10px; /* optional: to add space inside */
+  border-radius: 25%;
+}
+
+.icon-custom {
+  font-size: 25px !important;
 }

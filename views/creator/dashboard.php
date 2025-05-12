@@ -100,19 +100,19 @@ include '../../includes/admin/admin_header.php';
                     <div class="col">
                         <div class="card">
                             <div class="card-body">
+                                <p class="icon-custom">🔒</p>
                                 <h3 class="card-title"><strong>Membership</strong></h3>
                                 <p class="text-muted">Monthly membership for your biggest fans and supporters.</p>
                             </div>
                             <!-- Card footer -->
                             <div class="card-footer">
                                 <a href="#" class="btn btn-github w-100">
-                                    View
-                                    <!-- Download SVG icon from http://tabler-icons.io/i/brand-github -->
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-external-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    View &nbsp;&nbsp;                                    
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right">
                                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M11 7h-5a2 2 0 0 0 -2 2v9a2 2 0 0 0 2 2h9a2 2 0 0 0 2 -2v-5" />
-                                        <path d="M10 14l10 -10" />
-                                        <path d="M15 4h5v5" />
+                                        <path d="M5 12l14 0" />
+                                        <path d="M15 16l4 -4" />
+                                        <path d="M15 8l4 4" />
                                     </svg>
                                 </a>
                             </div>
@@ -121,24 +121,42 @@ include '../../includes/admin/admin_header.php';
                     <div class="col">
                         <div class="card">
                             <div class="card-body">
+                                <p class="icon-custom">🛍️</p>
                                 <h3 class="card-title"><strong>Shop</strong></h3>
                                 <p class="text-muted">Introducing Shop, the creative way to sell.</p>
                             </div>
                             <!-- Card footer -->
                             <div class="card-footer">
-                                <a href="#" class="btn btn-primary">Enable</a>
+                                <a href="#" class="btn btn-github w-100">
+                                    Enable &nbsp;&nbsp;                                     
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M5 12l14 0" />
+                                        <path d="M15 16l4 -4" />
+                                        <path d="M15 8l4 4" />
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>
                     <div class="col">
                         <div class="card">
                             <div class="card-body">
+                                <p class="icon-custom">📝</p>
                                 <h3 class="card-title"><strong>Exclusive posts</strong></h3>
                                 <p class="text-muted">Publish your best content exclusively for your supporters and members.</p>
                             </div>
                             <!-- Card footer -->
                             <div class="card-footer">
-                                <a href="#" class="btn btn-primary">Write a post</a>
+                                <a href="#" class="btn btn-github w-100">
+                                    Write a post &nbsp;&nbsp;                                     
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path d="M5 12l14 0" />
+                                        <path d="M15 16l4 -4" />
+                                        <path d="M15 8l4 4" />
+                                    </svg>
+                                </a>
                             </div>
                         </div>
                     </div>
