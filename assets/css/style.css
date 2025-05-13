@@ -187,10 +187,11 @@
 }
 
 .card-custom {
-    border-radius: 30px !important;
+    border-radius: 20px !important;
     overflow: hidden !important;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1) !important;
     transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+    /* border: none; */
 }
 
 .card-header-custom {
@@ -348,4 +349,8 @@
 
 .icon-custom {
   font-size: 25px !important;
+}
+
+.grey-background {
+  background-color: #F5F7FB;
 }
