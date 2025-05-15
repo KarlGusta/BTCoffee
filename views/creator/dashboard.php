@@ -13,7 +13,7 @@ include '../../includes/admin/admin_header.php';
         <div class="row row-cards">
             <!-- Add contents here -->
             <div class="col-md-8 mx-auto">
-                <div class="card">
+                <div class="card card-custom">
                     <div class="card-header">
                         <div>
                             <div class="row align-items-center">
@@ -73,7 +73,7 @@ include '../../includes/admin/admin_header.php';
             </div>
 
             <div class="col-md-8 mx-auto">
-                <div class="card">
+                <div class="card card-custom">
                     <div class="card-body text-center py-4 p-sm-5">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-heart">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -98,7 +98,7 @@ include '../../includes/admin/admin_header.php';
                 </div>
                 <div class="row row-cards row-deck">
                     <div class="col">
-                        <div class="card">
+                        <div class="card card-custom">
                             <div class="card-body">
                                 <p class="icon-custom">🔒</p>
                                 <h3 class="card-title"><strong>Membership</strong></h3>
@@ -119,7 +119,7 @@ include '../../includes/admin/admin_header.php';
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card">
+                        <div class="card card-custom">
                             <div class="card-body">
                                 <p class="icon-custom">🛍️</p>
                                 <h3 class="card-title"><strong>Shop</strong></h3>
@@ -140,7 +140,7 @@ include '../../includes/admin/admin_header.php';
                         </div>
                     </div>
                     <div class="col">
-                        <div class="card">
+                        <div class="card card-custom">
                             <div class="card-body">
                                 <p class="icon-custom">📝</p>
                                 <h3 class="card-title"><strong>Exclusive posts</strong></h3>
