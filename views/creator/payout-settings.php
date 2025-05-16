@@ -38,8 +38,41 @@ include '../../includes/admin/admin_header.php';
                         <div>
                             <div class="row align-items-center">
                                 <div class="col">
-                                    <div class="card-title">Payout history</div>
-                                    <h1 class="card-subtitle"><strong>$0</strong></h1>
+                                    <h1 class="card-title">Payout history</h1>
+                                    <div class="table-responsive">
+                                        <table class="table table-vcenter card-table">
+                                            <tbody>
+                                                <tr>
+                                                    <td>DATE</td>
+                                                    <td>
+                                                        AMOUNT
+                                                    </td>
+                                                    <td>STATUS</td>                                                   
+                                                </tr>
+                                                <tr>
+                                                    <td>14th January 2024</td>
+                                                    <td class="text-muted">
+                                                        $22
+                                                    </td>
+                                                    <td class="text-muted">Completed</td>                                                   
+                                                </tr>
+                                                <tr>
+                                                    <td>14th January 2024</td>
+                                                    <td class="text-muted">
+                                                        $22
+                                                    </td>
+                                                    <td class="text-muted">Completed</td>                                                   
+                                                </tr>
+                                                <tr>
+                                                    <td>14th January 2024</td>
+                                                    <td class="text-muted">
+                                                        $22
+                                                    </td>
+                                                    <td class="text-muted">Completed</td>                                                   
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
