@@ -40,14 +40,14 @@ include '../../includes/admin/admin_header.php';
                                 <div class="col">
                                     <h1 class="card-title">Payout history</h1>
                                     <div class="table-responsive">
-                                        <table class="table table-vcenter card-table">
+                                        <table class="table table-vcenter card-table w-100 table-custom">
                                             <tbody>
                                                 <tr>
-                                                    <td>DATE</td>
-                                                    <td>
+                                                    <th>DATE</th>
+                                                    <th>
                                                         AMOUNT
-                                                    </td>
-                                                    <td>STATUS</td>                                                   
+                                                    </th>
+                                                    <th>STATUS</th>                                                   
                                                 </tr>
                                                 <tr>
                                                     <td>14th January 2024</td>

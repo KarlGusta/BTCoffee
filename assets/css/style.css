@@ -354,3 +354,7 @@
 .grey-background {
   background-color: #F5F7FB;
 }
+
+.table-custom {
+  min-width: 600px;
+}
