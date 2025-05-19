@@ -18,6 +18,7 @@ if (!class_exists('PathConfig')) {
                         'views' => [
                             'creator' => '/views/creator/',
                             'payment' => '/views/payment/',
+                            'shop' => '/views/shop/',
                             'registration' => '/views/registration/'
                         ],
                         'handlers' => '/handlers/',
