@@ -6,7 +6,9 @@ ini_set('display_errors', 1);
 include_once '../../config/paths.php';
 
 // Only include header files after all potential redirects
-include '../../includes/admin/admin_header.php';
+include '../../includes/admin/admin-header-links.php';
+include '../../includes/admin/admin-header.php';
+include '../../includes/admin/admin-sidebar.php';
 ?>
 <div class="page-body">
     <div class="container-xl">
@@ -83,4 +85,4 @@ include '../../includes/admin/admin_header.php';
     </div>
 </div>
 
-<?php include '../../includes/admin/admin_footer.php'; ?>
+<?php include '../../includes/admin/admin-footer.php'; ?>

@@ -6,7 +6,9 @@ ini_set('display_errors', 1);
 include_once '../../config/paths.php';
 
 // Only include header files after all potential redirects
-include '../../includes/admin/admin_header.php';
+include '../../includes/admin/admin-header-links.php';
+include '../../includes/admin/admin-header.php';
+include '../../includes/admin/admin-sidebar.php';
 ?>
 <div class="page-body">
     <div class="container-xl">
@@ -105,7 +107,7 @@ include '../../includes/admin/admin_header.php';
                                 <p class="text-muted">Monthly membership for your biggest fans and supporters.</p>
                             </div>
                             <!-- Card footer -->
-                            <div class="card-footer">
+                            <div class="card-footer card-footer-transparent">
                                 <a href="#" class="btn btn-github w-100">
                                     View &nbsp;&nbsp;                                    
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right">
@@ -126,7 +128,7 @@ include '../../includes/admin/admin_header.php';
                                 <p class="text-muted">Introducing Shop, the creative way to sell.</p>
                             </div>
                             <!-- Card footer -->
-                            <div class="card-footer">
+                            <div class="card-footer card-footer-transparent">
                                 <a href="#" class="btn btn-github w-100">
                                     Enable &nbsp;&nbsp;                                     
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right">
@@ -147,7 +149,7 @@ include '../../includes/admin/admin_header.php';
                                 <p class="text-muted">Publish your best content exclusively for your supporters and members.</p>
                             </div>
                             <!-- Card footer -->
-                            <div class="card-footer">
+                            <div class="card-footer card-footer-transparent">
                                 <a href="#" class="btn btn-github w-100">
                                     Write a post &nbsp;&nbsp;                                     
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-arrow-narrow-right">
@@ -166,4 +168,4 @@ include '../../includes/admin/admin_header.php';
     </div>
 </div>
 
-<?php include '../../includes/admin/admin_footer.php'; ?>
+<?php include '../../includes/admin/admin-footer.php'; ?>

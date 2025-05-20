@@ -8,23 +8,12 @@ include_once '../../config/paths.php';
 // Only include header files after all potential redirects
 include '../../includes/admin/admin-header-links.php';
 include '../../includes/admin/admin-header.php';
-include '../../includes/admin/admin-sidebar.php';
 ?>
 <div class="page-body">
     <div class="container-xl">
 
         <div class="row row-cards">
             <div class="col-md-8 mx-auto">
-                <!-- Page title -->
-                <div class="page-header d-print-none mb-2">
-                    <div class="row g-2 align-items-center">
-                        <div class="col">
-                            <h2 class="page-title">
-                                Shop
-                            </h2>
-                        </div>
-                    </div>
-                </div>
                 <div class="card card-custom">
                     <div class="card-body text-center py-4">
                         <h1 class="mt-1">Add a new listing</h1>
@@ -149,4 +138,4 @@ include '../../includes/admin/admin-sidebar.php';
     </div>
 </div>
 
-<?php include '../../includes/admin/admin-footer.php'; ?>
+<?php include '../../includes/admin/admin_footer.php'; ?>

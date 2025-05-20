@@ -6,7 +6,9 @@ ini_set('display_errors', 1);
 include_once '../../config/paths.php';
 
 // Only include header files after all potential redirects
-include '../../includes/admin/admin_header.php';
+include '../../includes/admin/admin-header-links.php';
+include '../../includes/admin/admin-header.php';
+include '../../includes/admin/admin-sidebar.php';
 ?>
 <div class="page-body">
   <div class="container-xl">
@@ -314,8 +316,8 @@ include '../../includes/admin/admin_header.php';
                             <div class="card-body">
                               <div class="d-flex align-items-center">
                                 <div>
-                                <div>Bonus points with internet service providers</div>
-                                <div class="text-muted">May 4, 2025</div>
+                                  <div>Bonus points with internet service providers</div>
+                                  <div class="text-muted">May 4, 2025</div>
                                 </div>
                               </div>
                             </div>
@@ -359,7 +361,7 @@ include '../../includes/admin/admin_header.php';
                               <div class="d-flex align-items-center">
                                 <div>
                                   <div>Qantas Hotel - Tips</div>
-                                <div class="text-muted">Sept 4, 2023</div>
+                                  <div class="text-muted">Sept 4, 2023</div>
                                 </div>
                               </div>
                             </div>
@@ -371,8 +373,8 @@ include '../../includes/admin/admin_header.php';
                             <div class="card-body">
                               <div class="d-flex align-items-center">
                                 <div>
-                                <div>Bonus Qantas Hotel - Tips</div>
-                                <div class="text-muted">Sept 4, 2023</div>
+                                  <div>Bonus Qantas Hotel - Tips</div>
+                                  <div class="text-muted">Sept 4, 2023</div>
                                 </div>
                               </div>
                             </div>
@@ -394,4 +396,4 @@ include '../../includes/admin/admin_header.php';
   </div>
 </div>
 
-<?php include '../../includes/admin/admin_footer.php'; ?>
+<?php include '../../includes/admin/admin-footer.php'; ?>
