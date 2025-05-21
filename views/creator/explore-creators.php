@@ -13,7 +13,7 @@ include '../../includes/admin/admin-sidebar.php';
 <div class="page-body">
   <div class="container-xl">
     <div class="row row-cards">
-      <div class="col-md-10 mx-auto">
+      <div class="col-md-8 mx-auto">
         <div class="card grey-background" style="border: none; box-shadow: none; padding: 16px;">
           <ul class="nav nav-tabs" data-bs-toggle="tabs">
             <li class="nav-item">
