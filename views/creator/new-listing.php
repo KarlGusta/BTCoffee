@@ -37,7 +37,7 @@ include_once '../../config/paths.php';
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <h1 class="navbar-brand navbar-brand-autodark d-none-navbar-horizontal pe-0 pe-md-3">
-                    <a href="https://github.com/tabler/tabler" class="btn" target="_blank" rel="noreferrer">
+                    <a href="https://github.com/tabler/tabler" class="btn btn-light btn-icon w-100" target="_blank" rel="noreferrer">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-chevron-left">
                             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                             <path d="M15 6l-6 6l6 6" />
@@ -48,7 +48,7 @@ include_once '../../config/paths.php';
                 <div class="navbar-nav flex-row order-md-last">
                     <div class="nav-item d-none d-md-flex me-3">
                         <div class="btn-list">
-                            <a href="https://github.com/tabler/tabler" class="btn" target="_blank" rel="noreferrer">
+                            <a href="https://github.com/tabler/tabler" class="btn btn-light btn-icon" target="_blank" rel="noreferrer">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                                     <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                     <circle cx="12" cy="12" r="2" />
