@@ -72,17 +72,71 @@ include_once '../../config/paths.php';
                     <div class="row row-cards">
                         <div class="col-md-8 mx-auto">
                             <div class="card card-custom">
-                                <div class="card-body text-center py-4 p-sm-5">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-building-store">
-                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
-                                        <path d="M3 21l18 0" />
-                                        <path d="M3 7v1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1m0 1a3 3 0 0 0 6 0v-1h-18l2 -4h14l2 4" />
-                                        <path d="M5 21l0 -10.15" />
-                                        <path d="M19 21l0 -10.15" />
-                                        <path d="M9 21v-4a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v4" />
-                                    </svg>
-                                    <h1 class="mt-1">You haven't added anything yet.</h1>
-                                    <p class="text-muted">Shop is a simple and effective way to offer something to your audience. It could be anything. See some examples here, here, and here</p>
+                                <div class="card-body py-4 p-sm-5">
+                                    <form action="" method="post" class="">
+                                        <div class="form-group mb-3">
+                                            <label class="form-label">Name</label>
+                                            <input type="text" placeholder="What are you offering?">
+                                        </div>
+
+                                        <div class="form-group mb-3">
+                                            <label class="form-label">Description &nbsp;
+                                                <span class="form-help" data-bs-toggle="popover" data-bs-placement="top" data-bs-html="true"
+                                                    data-bs-content="<p>If you'd like to add some pip and pizzazz to make your extra sound exciting, this is the place to do it</p>
+                                                  ">?</span>
+                                            </label>
+                                            <div class="btn-group w-100">
+                                                <a href="#" class="btn btn-white btn-icon" aria-label="Button">
+                                                    <!-- Download SVG icon from http://tabler-icons.io/i/bold -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                        <path d="M7 5h6a3.5 3.5 0 0 1 0 7h-6z" />
+                                                        <path d="M13 12h1a3.5 3.5 0 0 1 0 7h-7v-7" />
+                                                    </svg>
+                                                </a>
+                                                <a href="#" class="btn btn-white btn-icon" aria-label="Button">
+                                                    <!-- Download SVG icon from http://tabler-icons.io/i/italic -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                        <line x1="11" y1="5" x2="17" y2="5" />
+                                                        <line x1="7" y1="19" x2="13" y2="19" />
+                                                        <line x1="14" y1="5" x2="10" y2="19" />
+                                                    </svg>
+                                                </a>
+                                                <a href="#" class="btn btn-white btn-icon" aria-label="Button">
+                                                    <!-- Download SVG icon from http://tabler-icons.io/i/underline -->
+                                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                        <path d="M7 5v5a5 5 0 0 0 10 0v-5" />
+                                                        <path d="M5 19h14" />
+                                                    </svg>
+                                                </a>
+                                                <a href="#" class="btn btn-white btn-icon" aria-label="Button">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-list">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                        <path d="M9 6l11 0" />
+                                                        <path d="M9 12l11 0" />
+                                                        <path d="M9 18l11 0" />
+                                                        <path d="M5 6l0 .01" />
+                                                        <path d="M5 12l0 .01" />
+                                                        <path d="M5 18l0 .01" />
+                                                    </svg>
+                                                </a>
+                                                <a href="#" class="btn btn-white btn-icon" aria-label="Button">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-link">
+                                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                        <path d="M9 15l6 -6" />
+                                                        <path d="M11 6l.463 -.536a5 5 0 0 1 7.071 7.072l-.534 .464" />
+                                                        <path d="M13 18l-.397 .534a5.068 5.068 0 0 1 -7.127 0a4.972 4.972 0 0 1 0 -7.071l.524 -.463" />
+                                                    </svg>
+                                                </a>
+                                            </div>
+                                            <textarea name="message" id="message" rows="5" maxlength="200" placeholder="Say something nice..."></textarea>
+                                        </div>
+                                        <div class="form-footer">
+                                            <button type="submit" id="support-button" class="btn btn-primary w-100 form-control-rounded btn-custom">Support with 1,000 sats</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
