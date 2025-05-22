@@ -131,7 +131,7 @@ include_once '../../config/paths.php';
                                                     </svg>
                                                 </a>
                                             </div>
-                                            <textarea name="message" id="message" rows="5" maxlength="200" placeholder="Say something nice..."></textarea>
+                                            <textarea name="message" id="message" rows="5" maxlength="200" placeholder="Describe what you're selling in a few sentence"></textarea>
                                         </div>
                                         <div class="form-footer">
                                             <button type="submit" id="support-button" class="btn btn-primary w-100 form-control-rounded btn-custom">Support with 1,000 sats</button>
